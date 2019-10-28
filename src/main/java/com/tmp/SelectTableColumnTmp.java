@@ -1,4 +1,4 @@
-package com.calcite.temp;
+package com.tmp;
 
 /**
  * 插入语句，select 表字段
@@ -6,7 +6,7 @@ package com.calcite.temp;
 public class SelectTableColumnTmp extends  SelectTableColumnTmpBase{
 
 
-    private String tableAlias;//表别名
+    private String tableAlias ="";//表别名
 
     private String columnNames;//字段名
 

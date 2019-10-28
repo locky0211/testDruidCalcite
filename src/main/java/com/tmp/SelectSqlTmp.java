@@ -1,4 +1,4 @@
-package com.calcite.temp;
+package com.tmp;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -86,5 +86,26 @@ public class SelectSqlTmp extends SelectTableColumnTmpBase {
         }
 
         return tableColumns;
+    }
+
+    /**
+     * 添加数据
+     * @param columnTmpBase
+     */
+    public void addDataBySelectTableColumnTmpBase(SelectTableColumnTmpBase columnTmpBase){
+        if (columnTmpBase instanceof SelectTableColumnTmp) {
+
+            SelectTableColumnTmp columnTmp = (SelectTableColumnTmp) columnTmpBase;
+            addSourceTableInfo(columnTmp.getTableAlias(), columnTmp.getColumnNames());
+
+        } else if (columnTmpBase instanceof SelectSqlTmp) {
+
+            SelectSqlTmp columnTmp = (SelectSqlTmp) columnTmpBase;
+            getTableAliaColumns().putAll(columnTmp.getTableAliaColumns());
+
+        } else if (columnTmpBase instanceof SelectSqlCaseTmp) {
+            SelectSqlCaseTmp columnTmp = (SelectSqlCaseTmp) columnTmpBase;
+            getTableAliaColumns().putAll(columnTmp.getTableAliaColumns());
+        }
     }
 }

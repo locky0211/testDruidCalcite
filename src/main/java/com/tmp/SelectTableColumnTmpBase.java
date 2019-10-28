@@ -1,4 +1,4 @@
-package com.calcite.temp;
+package com.tmp;
 
 /**
  * 插入语句，select 表字段

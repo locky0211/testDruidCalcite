@@ -1,10 +1,10 @@
 package com.calcite.sql;
 
 import com.alibaba.fastjson.JSONObject;
-import com.calcite.temp.SelectSqlCaseTmp;
-import com.calcite.temp.SelectSqlTmp;
-import com.calcite.temp.SelectTableColumnTmp;
-import com.calcite.temp.SelectTableColumnTmpBase;
+import com.tmp.SelectSqlCaseTmp;
+import com.tmp.SelectSqlTmp;
+import com.tmp.SelectTableColumnTmp;
+import com.tmp.SelectTableColumnTmpBase;
 import com.calcite.temp.fromjoin.FromJoinTableColumnTmp;
 import com.calcite.temp.insertwith.InsertWithOnSqlTmp;
 import org.apache.calcite.sql.*;

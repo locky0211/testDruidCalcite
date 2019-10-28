@@ -8,7 +8,7 @@ import com.alibaba.druid.sql.ast.expr.SQLIdentifierExpr;
 import com.alibaba.druid.sql.ast.statement.SQLInsertStatement;
 import com.alibaba.druid.sql.dialect.db2.parser.DB2StatementParser;
 import com.alibaba.druid.util.JdbcConstants;
-import com.calcite.temp.TargetTableInfo;
+import com.tmp.targettable.TargetTableInfo;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.List;

@@ -1,10 +1,8 @@
-package com.calcite.temp;
+package com.tmp.targettable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class TargetTableInfo implements Serializable{
 
