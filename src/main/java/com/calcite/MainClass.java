@@ -1,6 +1,6 @@
-package com;
+package com.calcite;
 
-import com.sql.SqlParserCalcite;
+import com.calcite.sql.SqlParserCalcite;
 
 public class MainClass {
 
@@ -403,125 +403,161 @@ public class MainClass {
 
 
 
-        String sql = "INSERT INTO IDS.I_LN_BUSINESS_INFO \n" +
+//        String sql = "INSERT INTO IDS.I_LN_BUSINESS_INFO \n" +
+//                "       SELECT\n" +
+//                "           I_STATEDATE AS TJRQ\n" +
+//                "           ,B.SERIALNO AS DKZH\n" +
+//                "           ,'' AS JGDM\n" +
+//                "           ,B.BUSINESSCURRENCY AS BZDM\n" +
+//                "           ,'' AS KMH\n" +
+//                "           ,'' AS NBKMH\n" +
+//                "           ,'' AS HXKHH\n" +
+//                "           ,B.CUSTOMERID AS XDKHH\n" +
+//                "           ,B.CUSTOMERNAME AS KHM\n" +
+//                "           ,B.BUSINESSSUM AS DKJE  --授信额度\n" +
+//                "           ,C.LN_LN_BAL AS DKYE\n" +
+//                "           ,0 AS DKJZ\n" +
+//                "           ,0 AS LXTZJE\n" +
+//                "           ,'' AS ZHZT\n" +
+//                "           ,'' AS FFLX\n" +
+//                "           ,CASE\n" +
+//                "          when B.OCCURDATE like '%0229'\n" +
+//                "           then last_day(substr(B.OCCURDATE,1,4) || '-02-01')\n" +
+//                "           WHEN LENGTH (B.OCCURDATE) IN (8, 10)\n" +
+//                "          THEN\n" +
+//                "             TO_DATE (B.OCCURDATE, 'YYYYMMDD')\n" +
+//                "       END AS KHRQ\n" +
+//                "           ,CASE\n" +
+//                "          when B.MATURITY like '%0229'\n" +
+//                "           then last_day(substr(B.MATURITY,1,4) || '-02-01')\n" +
+//                "           WHEN LENGTH (B.MATURITY) IN (8, 10)\n" +
+//                "          THEN\n" +
+//                "             TO_DATE (B.MATURITY, 'YYYYMMDD')\n" +
+//                "       END AS DQRQ\n" +
+//                "           ,NULL AS ZQRQ\n" +
+//                "           ,NULL AS YSDQRQ\n" +
+//                "           ,'' AS QXDM\n" +
+//                "           ,NULL AS XYCLLBDRQ\n" +
+//                "           ,'' AS LLBDDW\n" +
+//                "           ,0 AS JZLL\n" +
+//                "           ,0 AS ZXLL\n" +
+//                "           ,'' AS ZHXZ\n" +
+//                "           ,'' AS DKZL\n" +
+//                "           ,B.CREDITCYCLE  AS DKLX   --授信额度循环标志\n" +
+//                "           ,NVL(B.BUSINESSTYPE,C.LN_LN_BAL,9999) AS DKYT   --授信分类\n" +
+//                "           ,'' AS KHLX\n" +
+//                "           ,'' AS QYGM\n" +
+//                "           ,'' AS KGXS\n" +
+//                "           ,'' AS HYFL\n" +
+//                "           ,'' AS DKTX\n" +
+//                "           ,'' AS WJFL\n" +
+//                "           ,'' AS SJFL4\n" +
+//                "           ,'' AS SJFL10\n" +
+//                "           ,'' AS DBFS\n" +
+//                "           ,'' AS SXH\n" +
+//                "           ,'' AS HTH\n" +
+//                "           ,'' AS JJH\n" +
+//                "           ,0 AS JZZBJE\n" +
+//                "           ,'' AS DKKH\n" +
+//                "           ,'' AS CKZH\n" +
+//                "           ,'' AS DKZLGS\n" +
+//                "           ,'' AS GRDKYT\n" +
+//                "           ,'' AS XGSYDKFL\n" +
+//                "           ,'' AS GJJDKBS\n" +
+//                "           ,'' AS SNBS\n" +
+//                "           ,'' AS SNZZLX\n" +
+//                "           ,'' AS ZNDKYT\n" +
+//                "           ,'' AS YTDKBS\n" +
+//                "           ,'' AS ZFFS\n" +
+//                "           ,'' AS HBFS\n" +
+//                "           ,'' AS HXFS\n" +
+//                "           ,'' AS CZTXBS\n" +
+//                "           ,'' AS TSBZ\n" +
+//                "           ,0 AS QBTS    --欠本天数\n" +
+//                "           ,0 AS QXTS    --欠息天数\n" +
+//                "           ,0 AS QBYE    --欠本余额\n" +
+//                "           ,0 AS BNQXYE  --表内欠息余额\n" +
+//                "           ,0 AS BWQXYE  --表外欠息余额\n" +
+//                "           ,0 AS BYHBJE\n" +
+//                "           ,0 AS BYHXJE\n" +
+//                "           ,NULL AS ZJYCHBRQ\n" +
+//                "           ,0 AS ZJYCHBJE\n" +
+//                "           ,NULL AS ZJYCHXRQ\n" +
+//                "           ,0 AS ZJYHXJE\n" +
+//                "           ,NULL AS XQHBRQ\n" +
+//                "           ,0 AS XQHBJE\n" +
+//                "           ,NULL AS XQHXRQ\n" +
+//                "           ,0 AS XQHXJE\n" +
+//                "           ,null AS SCHBRQ\n" +
+//                "           ,null AS SCHXRQ\n" +
+//                "           ,'' AS CYJGTZLX\n" +
+//                "           ,'' AS GYZXSJBS\n" +
+//                "           ,'' AS ZLXXCYLX\n" +
+//                "           ,B.MANAGEUSERID AS YWGHR\n" +
+//                "           ,B.MANAGEORGID AS YWGHJGDM\n" +
+//                "           ,NULL AS ZXDKLX\n" +
+//                "           ,NULL AS XXMC\n" +
+//                "           ,NULL AS XXDZ\n" +
+//                "           ,NULL AS XXXZQHDM\n" +
+//                "           ,NULL AS XSZH\n" +
+//                "           ,NULL AS DKSJTZZ\n" +
+//                "           ,NULL AS DKSJTZZXZQHDM\n" +
+//                "           ,NULL AS FDCDKLX\n" +
+//                "           ,0 AS ZFJZMJ\n" +
+//                "           ,0 AS ZFTS\n" +
+//                "           ,0 AS DKJZB\n" +
+//                "           ,0 AS CZSRB\n" +
+//                "           ,'' AS ZFRZPTBS\n" +
+//                "           ,NULL AS ZFRZFLXZ\n" +
+//                "           ,NULL AS ZFRZLSGX\n" +
+//                "           ,NULL AS ZFRZLX\n" +
+//                "           ,NULL AS ZFRZZJLY\n" +
+//                "           ,NULL AS ZFRZPTTX\n" +
+//                "       FROM FDS.F_LN_BUSINESS_CONTRACT_H B \n" +
+//                "       LEFT JOIN  (SELECT D.SERIALNO AS SERIALNO,sum(E.LN_LN_BAL) AS LN_LN_BAL FROM FDS.F_LN_BUSINESS_DUEBILL_H A\n" +
+//                "            INNER JOIN FDS.F_LN_BUSINESS_CONTRACT_H B ON A.RELATIVESERIALNO2 = B.SERIALNO AND B.FLAG5 IN ('1000','3000') AND B.END_DT='9999-12-31'\n" +
+//                "            INNER JOIN FDS.F_LN_BUSINESS_CONTRACT_H D ON D.RELATIVESERIALNO = B.CREDITAGGREEMENT AND D.FLAG5 IN ('1000','3000') AND D.END_DT='9999-12-31'\n" +
+//                "            INNER JOIN FDS.F_LN_LNLNSLNS_H E ON E.LN_LN_ACCT_NO = A.SERIALNO AND E.END_DT='9999-12-31'\n" +
+//                "                WHERE (SUBSTR (A.SUBJECTNO,1,4) IN ('1301','1302','1303','1304','1305','1307','1308')) AND A.END_DT='9999-12-31'\n" +
+//                "            GROUP BY  D.SERIALNO) C\n" +
+//                "       ON B.SERIALNO=C.SERIALNO    \n" +
+//                "       WHERE B.BUSINESSTYPE LIKE '3%' AND B.FLAG5 IN ('1000', '3000') AND B.END_DT='9999-12-31'";
+
+
+        String sql = "INSERT INTO IDS.I_CI_ENT_INFO" +
+//                "(\n" +
+//                "            TJRQ\n" +
+//                "            ,XDKHH\n" +
+//                "            ,HXKHH\n" +
+//                "            ,KHMC\n" +
+//                "            ,KHYWMC\n" +
+//                "            ,KHLX\n" +
+//                "            ,JWJGBS\n" +
+//                "            ,QYGM\n" +
+//                "            ,HYFL\n" +
+//                "            ,SYZDM\n" +
+//                "            ,KGXS\n" +
+//                "            ,ZJLX\n" +
+//                "            \n" +
+//                ")\n" +
                 "       SELECT\n" +
-                "           I_STATEDATE AS TJRQ\n" +
-                "           ,B.SERIALNO AS DKZH\n" +
-                "           ,'' AS JGDM\n" +
-                "           ,B.BUSINESSCURRENCY AS BZDM\n" +
-                "           ,'' AS KMH\n" +
-                "           ,'' AS NBKMH\n" +
-                "           ,'' AS HXKHH\n" +
-                "           ,B.CUSTOMERID AS XDKHH\n" +
-                "           ,B.CUSTOMERNAME AS KHM\n" +
-                "           ,B.BUSINESSSUM AS DKJE  --授信额度\n" +
-                "           ,C.LN_LN_BAL AS DKYE\n" +
-                "           ,0 AS DKJZ\n" +
-                "           ,0 AS LXTZJE\n" +
-                "           ,'' AS ZHZT\n" +
-                "           ,'' AS FFLX\n" +
-                "           ,CASE\n" +
-                "          when B.OCCURDATE like '%0229'\n" +
-                "           then last_day(substr(B.OCCURDATE,1,4) || '-02-01')\n" +
-                "           WHEN LENGTH (B.OCCURDATE) IN (8, 10)\n" +
-                "          THEN\n" +
-                "             TO_DATE (B.OCCURDATE, 'YYYYMMDD')\n" +
-                "       END AS KHRQ\n" +
-                "           ,CASE\n" +
-                "          when B.MATURITY like '%0229'\n" +
-                "           then last_day(substr(B.MATURITY,1,4) || '-02-01')\n" +
-                "           WHEN LENGTH (B.MATURITY) IN (8, 10)\n" +
-                "          THEN\n" +
-                "             TO_DATE (B.MATURITY, 'YYYYMMDD')\n" +
-                "       END AS DQRQ\n" +
-                "           ,NULL AS ZQRQ\n" +
-                "           ,NULL AS YSDQRQ\n" +
-                "           ,'' AS QXDM\n" +
-                "           ,NULL AS XYCLLBDRQ\n" +
-                "           ,'' AS LLBDDW\n" +
-                "           ,0 AS JZLL\n" +
-                "           ,0 AS ZXLL\n" +
-                "           ,'' AS ZHXZ\n" +
-                "           ,'' AS DKZL\n" +
-                "           ,B.CREDITCYCLE  AS DKLX   --授信额度循环标志\n" +
-                "           ,NVL(B.BUSINESSTYPE,C.LN_LN_BAL,9999) AS DKYT   --授信分类\n" +
-                "           ,'' AS KHLX\n" +
-                "           ,'' AS QYGM\n" +
-                "           ,'' AS KGXS\n" +
-                "           ,'' AS HYFL\n" +
-                "           ,'' AS DKTX\n" +
-                "           ,'' AS WJFL\n" +
-                "           ,'' AS SJFL4\n" +
-                "           ,'' AS SJFL10\n" +
-                "           ,'' AS DBFS\n" +
-                "           ,'' AS SXH\n" +
-                "           ,'' AS HTH\n" +
-                "           ,'' AS JJH\n" +
-                "           ,0 AS JZZBJE\n" +
-                "           ,'' AS DKKH\n" +
-                "           ,'' AS CKZH\n" +
-                "           ,'' AS DKZLGS\n" +
-                "           ,'' AS GRDKYT\n" +
-                "           ,'' AS XGSYDKFL\n" +
-                "           ,'' AS GJJDKBS\n" +
-                "           ,'' AS SNBS\n" +
-                "           ,'' AS SNZZLX\n" +
-                "           ,'' AS ZNDKYT\n" +
-                "           ,'' AS YTDKBS\n" +
-                "           ,'' AS ZFFS\n" +
-                "           ,'' AS HBFS\n" +
-                "           ,'' AS HXFS\n" +
-                "           ,'' AS CZTXBS\n" +
-                "           ,'' AS TSBZ\n" +
-                "           ,0 AS QBTS    --欠本天数\n" +
-                "           ,0 AS QXTS    --欠息天数\n" +
-                "           ,0 AS QBYE    --欠本余额\n" +
-                "           ,0 AS BNQXYE  --表内欠息余额\n" +
-                "           ,0 AS BWQXYE  --表外欠息余额\n" +
-                "           ,0 AS BYHBJE\n" +
-                "           ,0 AS BYHXJE\n" +
-                "           ,NULL AS ZJYCHBRQ\n" +
-                "           ,0 AS ZJYCHBJE\n" +
-                "           ,NULL AS ZJYCHXRQ\n" +
-                "           ,0 AS ZJYHXJE\n" +
-                "           ,NULL AS XQHBRQ\n" +
-                "           ,0 AS XQHBJE\n" +
-                "           ,NULL AS XQHXRQ\n" +
-                "           ,0 AS XQHXJE\n" +
-                "           ,null AS SCHBRQ\n" +
-                "           ,null AS SCHXRQ\n" +
-                "           ,'' AS CYJGTZLX\n" +
-                "           ,'' AS GYZXSJBS\n" +
-                "           ,'' AS ZLXXCYLX\n" +
-                "           ,B.MANAGEUSERID AS YWGHR\n" +
-                "           ,B.MANAGEORGID AS YWGHJGDM\n" +
-                "           ,NULL AS ZXDKLX\n" +
-                "           ,NULL AS XXMC\n" +
-                "           ,NULL AS XXDZ\n" +
-                "           ,NULL AS XXXZQHDM\n" +
-                "           ,NULL AS XSZH\n" +
-                "           ,NULL AS DKSJTZZ\n" +
-                "           ,NULL AS DKSJTZZXZQHDM\n" +
-                "           ,NULL AS FDCDKLX\n" +
-                "           ,0 AS ZFJZMJ\n" +
-                "           ,0 AS ZFTS\n" +
-                "           ,0 AS DKJZB\n" +
-                "           ,0 AS CZSRB\n" +
-                "           ,'' AS ZFRZPTBS\n" +
-                "           ,NULL AS ZFRZFLXZ\n" +
-                "           ,NULL AS ZFRZLSGX\n" +
-                "           ,NULL AS ZFRZLX\n" +
-                "           ,NULL AS ZFRZZJLY\n" +
-                "           ,NULL AS ZFRZPTTX\n" +
-                "       FROM FDS.F_LN_BUSINESS_CONTRACT_H B \n" +
-                "       LEFT JOIN  (SELECT D.SERIALNO AS SERIALNO,sum(E.LN_LN_BAL) AS LN_LN_BAL FROM FDS.F_LN_BUSINESS_DUEBILL_H A\n" +
-                "            INNER JOIN FDS.F_LN_BUSINESS_CONTRACT_H B ON A.RELATIVESERIALNO2 = B.SERIALNO AND B.FLAG5 IN ('1000','3000') AND B.END_DT='9999-12-31'\n" +
-                "            INNER JOIN FDS.F_LN_BUSINESS_CONTRACT_H D ON D.RELATIVESERIALNO = B.CREDITAGGREEMENT AND D.FLAG5 IN ('1000','3000') AND D.END_DT='9999-12-31'\n" +
-                "            INNER JOIN FDS.F_LN_LNLNSLNS_H E ON E.LN_LN_ACCT_NO = A.SERIALNO AND E.END_DT='9999-12-31'\n" +
-                "                WHERE (SUBSTR (A.SUBJECTNO,1,4) IN ('1301','1302','1303','1304','1305','1307','1308')) AND A.END_DT='9999-12-31'\n" +
-                "            GROUP BY  D.SERIALNO) C\n" +
-                "       ON B.SERIALNO=C.SERIALNO    \n" +
-                "       WHERE B.BUSINESSTYPE LIKE '3%' AND B.FLAG5 IN ('1000', '3000') AND B.END_DT='9999-12-31'";
+                "        I_STATEDATE AS TLRQ,\n" +
+                "        A.CUSTOMERID AS XDKHH,\n" +
+                "        VALUE2(C.HXKHH,B.MFCUSTOMERID) AS HXKHH,\n" +
+                "          A.ENTERPRISENAME AS KHMC,\n" +
+                "          A.ENGLISHNAME AS KHYWMC,\n" +
+                "          DSP.FUN_XMDZ AS KHLX,\n" +
+                "          '2' AS JWJGBS,\n" +
+                "          DSP.FUN_XMDZ ('qygm',SCOPE2,'9') AS QYGM,\n" +
+             //   "          DSP.FUN_XMDZ ('ssss',TLRQ,'ffffff') AS QYGM,\n" +
+                "          A.INDUSTRYTYPE AS HYFL,\n" +
+                "          DSP.FUN_XMDZ ('syzdm',ORGTYPE,'') AS SYZDM,\n" +
+                "          DSP.FUN_XMDZ    AS KGXS,\n" +
+                "          '1' AS ZJLX\n" +
+                "        FROM ODS.O_CMIS_ENT_INFO A\n " +
+                "        LEFT JOIN ODS.O_CMIS_CUSTOMER_INFO B  ON A.CUSTOMERID=B.CUSTOMERID \n" +
+                "\t\tLEFT JOIN TEST_TEST E  ON A.CUSTOMERID=E.CUSTOMERID \n" +
+                "\t\tLEFT JOIN TEST_TEST2 D  ON A.CUSTOMERID=D.CUSTOMERID \n";
 
         SqlParserCalcite.opTargetTableInfoByDruid(sql, "111");
 

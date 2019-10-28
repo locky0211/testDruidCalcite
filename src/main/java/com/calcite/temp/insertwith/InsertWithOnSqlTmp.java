@@ -1,4 +1,4 @@
-package com.temp.fromjoin;
+package com.calcite.temp.insertwith;
 
 
 import java.util.ArrayList;
@@ -7,25 +7,25 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * from tableA a
- * left join( select c.name name1,c.desc desc1 from tableC ) b
- * on a.id = b.name1
+ * insert into table2
+ * with
+ * s1 as (select rownum c1 from dual connect by rownum <= 10),
  */
-public class FromJoinTableColumnTmp {
+public class InsertWithOnSqlTmp {
 
-    private String tmpTableAlias;//关联表的别名，eg： b
+    private String tmpTableAlias;//临时表的别名，eg： a1
 
-    private String columnName;//使用字段名，eg: b.name1
+    private String columnName;//使用字段名，eg: a1.c1
 
 
-    //该字段源信息<表名,List<字段名>>  eg:<tableC,[name]>
+    //该字段源信息<表名,List<字段名>>  eg:<dual,[rownum]>
     Map<String, List<String>> sourceTableInfo = new HashMap<String, List<String>>();
 
-    public FromJoinTableColumnTmp() {
+    public InsertWithOnSqlTmp() {
 
     }
 
-    public FromJoinTableColumnTmp(String tmpTableAlias) {
+    public InsertWithOnSqlTmp(String tmpTableAlias) {
         this.tmpTableAlias = tmpTableAlias;
     }
 
@@ -45,7 +45,6 @@ public class FromJoinTableColumnTmp {
         this.columnName = columnName;
     }
 
-
     public Map<String, List<String>> getSourceTableInfo() {
         return sourceTableInfo;
     }
@@ -54,8 +53,8 @@ public class FromJoinTableColumnTmp {
         this.sourceTableInfo = sourceTableInfo;
     }
 
-
     public void addSourceTableInfo(String sourceTableName, String sourceTableColumn) {
+
 
         List<String> columns = sourceTableInfo.get(sourceTableName);
         if (columns == null) {

@@ -1,4 +1,4 @@
-package com.util;
+package com.calcite.util;
 
 import org.apache.calcite.sql.SqlIdentifier;
 import org.apache.calcite.sql.SqlNode;

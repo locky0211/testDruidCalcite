@@ -1,19 +1,18 @@
-package com.test;
+package com.calcite.test;
 
 
 import org.apache.calcite.config.Lex;
-import org.apache.calcite.sql.*;
+import org.apache.calcite.sql.SqlInsert;
+import org.apache.calcite.sql.SqlNode;
 import org.apache.calcite.sql.dialect.OracleSqlDialect;
 import org.apache.calcite.sql.parser.SqlParseException;
 import org.apache.calcite.sql.parser.SqlParser;
-
-import java.util.List;
 
 /**
  * @author quxiucheng
  * @date 2019-04-22 11:45:00
  */
-public class SqlParserSample {
+public class SqlParserSampleOld {
 
     public static void main(String[] args) throws SqlParseException {
         parserSql();
@@ -64,44 +63,7 @@ public class SqlParserSample {
         SqlNode sqlNode = parser.parseQuery(sql);
 
         SqlInsert sqlInsert = (SqlInsert) sqlNode;
-        SqlSelect sqlSelectList = (SqlSelect)sqlInsert.getSource();
-
-        //=============================select=======================================
-        SqlNodeList sqlNodeList = sqlSelectList.getSelectList();
-
-
-       List<SqlNode> list =  sqlNodeList.getList();
-       for(SqlNode sqlNode1 : list){
-            if(sqlNode1 instanceof SqlBasicCall){
-                    SqlBasicCall sqlBasicCall = (SqlBasicCall) sqlNode1;
-                    System.out.println();
-            }else if(sqlNode1 instanceof SqlIdentifier){
-                SqlIdentifier sqlIdentifier = (SqlIdentifier) sqlNode1;
-                System.out.println();
-            }
-
-
-       }
-
-
-        //============================target========================================
-        SqlNodeList columnList = (SqlNodeList)sqlInsert.getTargetColumnList();
-        List<SqlNode> columnListList =   columnList.getList();
-        for(SqlNode sqlNode1 : columnListList){
-            if(sqlNode1 instanceof SqlBasicCall){
-                SqlBasicCall sqlBasicCall = (SqlBasicCall) sqlNode1;
-                System.out.println();
-            }else if(sqlNode1 instanceof SqlIdentifier){
-                SqlIdentifier sqlIdentifier = (SqlIdentifier) sqlNode1;
-                System.out.println();
-            }
-        }
-
-
-
-
-
-
+        sqlInsert.getSource();
 
         // 还原某个方言的SQL
         System.out.println(sqlNode.toSqlString(OracleSqlDialect.DEFAULT));

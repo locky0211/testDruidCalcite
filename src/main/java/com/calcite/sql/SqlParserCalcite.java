@@ -1,12 +1,12 @@
-package com.sql;
+package com.calcite.sql;
 
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.temp.*;
-import com.temp.fromjoin.FromJoinTableColumnTmp;
-import com.temp.insertwith.InsertWithOnSqlTmp;
-import com.util.DruidUtil;
+import com.calcite.temp.*;
+import com.calcite.temp.fromjoin.FromJoinTableColumnTmp;
+import com.calcite.temp.insertwith.InsertWithOnSqlTmp;
+import com.calcite.util.DruidUtil;
 import org.apache.calcite.config.Lex;
 import org.apache.calcite.sql.*;
 import org.apache.calcite.sql.parser.SqlParseException;

@@ -1,4 +1,4 @@
-package com.test;
+package com.calcite.test;
 
 public class TestMain {
 

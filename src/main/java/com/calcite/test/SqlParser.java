@@ -1,4 +1,4 @@
-package com.test;
+package com.calcite.test;
 
 import com.alibaba.druid.sql.SQLUtils;
 import com.alibaba.druid.sql.ast.SQLStatement;

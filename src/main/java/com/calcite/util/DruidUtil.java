@@ -1,4 +1,4 @@
-package com.util;
+package com.calcite.util;
 
 import com.alibaba.druid.sql.SQLUtils;
 import com.alibaba.druid.sql.ast.SQLExpr;
@@ -8,7 +8,7 @@ import com.alibaba.druid.sql.ast.expr.SQLIdentifierExpr;
 import com.alibaba.druid.sql.ast.statement.SQLInsertStatement;
 import com.alibaba.druid.sql.dialect.db2.parser.DB2StatementParser;
 import com.alibaba.druid.util.JdbcConstants;
-import com.temp.TargetTableInfo;
+import com.calcite.temp.TargetTableInfo;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.List;

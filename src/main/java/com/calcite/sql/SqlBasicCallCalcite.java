@@ -1,10 +1,10 @@
-package com.sql;
+package com.calcite.sql;
 
-import com.temp.SelectSqlCaseTmp;
-import com.temp.SelectSqlTmp;
-import com.temp.SelectTableColumnTmp;
-import com.temp.SelectTableColumnTmpBase;
-import com.temp.fromjoin.FromJoinTableColumnTmp;
+import com.calcite.temp.SelectSqlCaseTmp;
+import com.calcite.temp.SelectSqlTmp;
+import com.calcite.temp.SelectTableColumnTmp;
+import com.calcite.temp.SelectTableColumnTmpBase;
+import com.calcite.temp.fromjoin.FromJoinTableColumnTmp;
 import org.apache.calcite.sql.*;
 import org.apache.calcite.sql.fun.SqlCase;
 import org.apache.commons.collections.CollectionUtils;
