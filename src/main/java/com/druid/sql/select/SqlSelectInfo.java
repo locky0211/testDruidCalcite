@@ -3,9 +3,8 @@ package com.druid.sql.select;
 import com.alibaba.druid.sql.ast.SQLExpr;
 import com.alibaba.druid.sql.ast.expr.*;
 import com.alibaba.druid.sql.ast.statement.*;
-import com.alibaba.druid.sql.dialect.db2.ast.stmt.DB2SelectQueryBlock;
+import com.calcite.temp.fromjoin.FromJoinTableColumnTmp;
 import com.druid.util.SqlSelectUtil;
-import com.tmp.SelectSqlCaseTmp;
 import com.tmp.SelectSqlTmp;
 import com.tmp.SelectTableColumnTmp;
 import com.tmp.SelectTableColumnTmpBase;
@@ -13,9 +12,16 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class SqlSelectInfo {
 
+
+
+    public static List<SelectTableColumnTmpBase> operateSqlSelect(SQLSelect sqlSelect, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
+
+        return operateSqlSelect(sqlSelect);
+    }
 
     /**
      * 处理 select 部分
@@ -25,32 +31,30 @@ public class SqlSelectInfo {
      */
     public static List<SelectTableColumnTmpBase> operateSqlSelect(SQLSelect sqlSelect) {
 
-
         SQLSelectQuery sqlSelectQuery = sqlSelect.getQuery();
 
-        if (!(sqlSelectQuery instanceof DB2SelectQueryBlock)) {
+        if (!(sqlSelectQuery instanceof SQLSelectQueryBlock)) {
             throw new RuntimeException("解析sql中sql部分，未知类型！[" + sqlSelectQuery.toString() + "]");
         }
-
         //select部分 sql格式转换
-        DB2SelectQueryBlock db2SelectQueryBlock = (DB2SelectQueryBlock) sqlSelectQuery;
+        SQLSelectQueryBlock sqlSelectQueryBlock = (SQLSelectQueryBlock) sqlSelectQuery;
+        return selectColumn(sqlSelectQueryBlock);
 
-        return selectColumn(db2SelectQueryBlock);
     }
 
 
     /**
      * 处理 select 部分
      *
-     * @param db2SelectQueryBlock
+     * @param sqlSelectQueryBlock
      * @return
      */
-    private static List<SelectTableColumnTmpBase> selectColumn(DB2SelectQueryBlock db2SelectQueryBlock) {
+    private static List<SelectTableColumnTmpBase> selectColumn(SQLSelectQueryBlock sqlSelectQueryBlock) {
 
         //判断 select × from(select ....) 的情况
-        if (SqlSelectUtil.checkSelectAll(db2SelectQueryBlock.getSelectList())) {
+        if (SqlSelectUtil.checkSelectAll(sqlSelectQueryBlock.getSelectList())) {
 
-            SQLSubqueryTableSource subQueryTableSource = (SQLSubqueryTableSource) db2SelectQueryBlock.getFrom();
+            SQLSubqueryTableSource subQueryTableSource = (SQLSubqueryTableSource) sqlSelectQueryBlock.getFrom();
             return operateSqlSelect(subQueryTableSource.getSelect());
         }
 
@@ -59,7 +63,7 @@ public class SqlSelectInfo {
         List<SelectTableColumnTmpBase> selectColumnTmps = new ArrayList<SelectTableColumnTmpBase>();
 
         //遍历select每一个部分
-        List<SQLSelectItem> selectItems = db2SelectQueryBlock.getSelectList();
+        List<SQLSelectItem> selectItems = sqlSelectQueryBlock.getSelectList();
         for (SQLSelectItem sqlSelectItem : selectItems) {
 
             //字段别名
@@ -83,7 +87,7 @@ public class SqlSelectInfo {
      * @param sqlExpr     select内容部分
      * @return
      */
-    private static SelectTableColumnTmpBase opSelectColumn(String columnAlias, SQLExpr sqlExpr) {
+    public static SelectTableColumnTmpBase opSelectColumn(String columnAlias, SQLExpr sqlExpr) {
 
         if (sqlExpr instanceof SQLIdentifierExpr) {// eg: tableA.column
             SQLIdentifierExpr sqlIdentifierExpr = (SQLIdentifierExpr) sqlExpr;
@@ -113,7 +117,7 @@ public class SqlSelectInfo {
             SelectSqlTmp selectSqlTmp = new SelectSqlTmp(SelectSqlTmp.TYPE_3);
             for (SQLExpr sqlMethodExpr : sqlMethodExprs) {
                 //处理函数的，不记录常量默认值类型
-                opSelectSqlTmp(sqlMethodExpr, selectSqlTmp, false);
+                opSelectSqlTmp(sqlMethodExpr, selectSqlTmp);
             }
             return selectSqlTmp;
         }
@@ -130,11 +134,26 @@ public class SqlSelectInfo {
                 || sqlExpr instanceof SQLNullExpr//null
                 ) {
             return new SelectTableColumnTmp(SelectTableColumnTmp.TYPE_2);
-
         }
         if (sqlExpr instanceof SQLCaseExpr) {// select case when 类型
-            return new SelectTableColumnTmp(SelectTableColumnTmp.TYPE_2);
 
+            return SqlSelectCaseWhen.opSqlSelectCaseWhen((SQLCaseExpr) sqlExpr);
+
+        }
+        if (sqlExpr instanceof SQLQueryExpr) {// select 语句
+
+            //select 嵌套 select
+            SQLQueryExpr sqlQueryExpr = (SQLQueryExpr) sqlExpr;
+
+            //获取select 字段
+            List<SelectTableColumnTmpBase> selectTmpBases = operateSqlSelect(sqlQueryExpr.getSubQuery());
+
+            //TODO =====================================获取from表 部分内容
+
+            SelectSqlTmp selectSqlTmp = new SelectSqlTmp(SelectSqlTmp.TYPE_3);
+            selectSqlTmp.addDataBySelectTableColumnTmpBase(selectTmpBases);
+
+            return selectSqlTmp;
         }
 
         //未知
@@ -152,35 +171,23 @@ public class SqlSelectInfo {
 
         //A.GL_FIRST_LEVEL_LG_COD||GL_SECOND_LEVEL_LG_CD
         SQLExpr sqlExprLeft = sqlBinaryOpExpr.getLeft();
-        SelectTableColumnTmpBase tmpBase = opSelectColumn("", sqlExprLeft);
-        selectSqlTmp.addDataBySelectTableColumnTmpBase(tmpBase);
+        opSelectSqlTmp(sqlExprLeft, selectSqlTmp);
+
 
         //GL_THIRD_LEVEL_LG_CD
         SQLExpr sqlExprRight = sqlBinaryOpExpr.getRight();
-
-
         opSelectSqlTmp(sqlExprRight, selectSqlTmp);
     }
 
-    private static void opSelectSqlTmp(SQLExpr sqlExpr, SelectSqlTmp selectSqlTmp) {
-
-        opSelectSqlTmp(sqlExpr, selectSqlTmp, true);
-    }
 
     /**
+     * select 单个部分，SelectSqlTmp 记录信息
+     *
      * @param sqlExpr
      * @param selectSqlTmp
-     * @param needDefault
      */
-    private static void opSelectSqlTmp(SQLExpr sqlExpr, SelectSqlTmp selectSqlTmp, boolean needDefault) {
+    public static void opSelectSqlTmp(SQLExpr sqlExpr, SelectSqlTmp selectSqlTmp) {
         SelectTableColumnTmpBase columnTmpBase = opSelectColumn("", sqlExpr);
-
-        if (!needDefault &&
-                (columnTmpBase.getType() == SelectTableColumnTmpBase.TYPE_2
-                        || columnTmpBase.getType() == SelectTableColumnTmpBase.TYPE_0)) {
-            //默认值，不记录
-            return;
-        }
 
         //添加数据到SelectSqlTmp
         selectSqlTmp.addDataBySelectTableColumnTmpBase(columnTmpBase);

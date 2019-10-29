@@ -1,5 +1,6 @@
 package com.tmp;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -48,6 +49,9 @@ public class SelectSqlTmp extends SelectTableColumnTmpBase {
      * @param sourceTableColumn
      */
     public void addSourceTableInfo(String tableAliaName, String sourceTableColumn) {
+        if (StringUtils.isBlank(tableAliaName) && StringUtils.isBlank(sourceTableColumn)) {
+            return;
+        }
 
         List<String> tableColumns = tableAliaColumns.get(tableAliaName);
         if (tableColumns == null) {
@@ -90,9 +94,25 @@ public class SelectSqlTmp extends SelectTableColumnTmpBase {
 
     /**
      * 添加数据
+     *
+     * @param columnTmpBases
+     */
+    public void addDataBySelectTableColumnTmpBase(List<SelectTableColumnTmpBase> columnTmpBases) {
+        if (CollectionUtils.isEmpty(columnTmpBases)) {
+            return;
+        }
+
+        for (SelectTableColumnTmpBase columnTmpBase : columnTmpBases) {
+            addDataBySelectTableColumnTmpBase(columnTmpBase);
+        }
+    }
+
+    /**
+     * 添加数据
+     *
      * @param columnTmpBase
      */
-    public void addDataBySelectTableColumnTmpBase(SelectTableColumnTmpBase columnTmpBase){
+    public void addDataBySelectTableColumnTmpBase(SelectTableColumnTmpBase columnTmpBase) {
         if (columnTmpBase instanceof SelectTableColumnTmp) {
 
             SelectTableColumnTmp columnTmp = (SelectTableColumnTmp) columnTmpBase;
