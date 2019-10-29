@@ -83,10 +83,10 @@ public class SqlParserDruid {
 
         if (stateNum == 1) {//只有一个sql
             //解析select 字段部分
-            selectTableColumnTmpBases.addAll(SqlSelectInfo.operateSqlSelect(insertSqlState.getQuery()));
+            selectTableColumnTmpBases.addAll(SqlSelectInfo.operateSqlSelect(insertSqlState.getQuery(), tableAliasmap, fromJoinTableColumnMap));
 
             // from 部分
-            tableAliasmap = SqlSelectFrom.generateSelectTables(insertSqlState.getQuery(), fromJoinTableColumnMap);
+            SqlSelectFrom.generateSelectTables(insertSqlState.getQuery(), tableAliasmap, fromJoinTableColumnMap);
 
         } else {
 
@@ -109,15 +109,15 @@ public class SqlParserDruid {
 
 
                 //解析select 字段部分
-                selectTableColumnTmpBases.addAll(SqlSelectInfo.operateSqlSelect(selectSqlState.getSelect()));
+                selectTableColumnTmpBases.addAll(SqlSelectInfo.operateSqlSelect(selectSqlState.getSelect(), tableAliasmap, fromJoinTableColumnMap));
 
                 //insert with 部分
                 if (selectSqlState.getSelect().getWithSubQuery() != null) {
-                    SqlInsertWith.operateWithAs(selectSqlState.getSelect().getWithSubQuery().getEntries(), tmpTableRelationTableMap, fromJoinTableColumnMap);
+                    SqlInsertWith.insertWithAsOp(selectSqlState.getSelect().getWithSubQuery(),tableAliasmap, tmpTableRelationTableMap, fromJoinTableColumnMap);
                 }
 
                 // from 部分
-                tableAliasmap = SqlSelectFrom.generateSelectTables(insertSqlState.getQuery(), fromJoinTableColumnMap);
+                SqlSelectFrom.generateSelectTables(insertSqlState.getQuery(), tableAliasmap, fromJoinTableColumnMap);
             }
         }
 

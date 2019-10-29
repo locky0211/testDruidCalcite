@@ -29,11 +29,10 @@ public class SqlInsertWith {
      * 有临时表  insert ..... with as...select ...
      *
      * @param sqlNodeSourceWith
-     * @param selectTableColumnTmps
      * @param tableAliasmap
      * @param tmpTableRelationTableMap
      */
-    private static void insertWithAsOp(SQLWithSubqueryClause sqlNodeSourceWith, List<SelectTableColumnTmpBase> selectTableColumnTmps, Map<String, String> tableAliasmap, Map<String, Map<String, InsertWithOnSqlTmp>> tmpTableRelationTableMap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
+    public static void insertWithAsOp(SQLWithSubqueryClause sqlNodeSourceWith, Map<String, String> tableAliasmap, Map<String, Map<String, InsertWithOnSqlTmp>> tmpTableRelationTableMap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
 
 
         //insert ..... with as部分
@@ -44,7 +43,7 @@ public class SqlInsertWith {
         }
 
         // 处理insert ..... with as部分
-        operateWithAs(withAsNodeList, tmpTableRelationTableMap, fromJoinTableColumnMap);
+        operateWithAs(withAsNodeList,tableAliasmap, tmpTableRelationTableMap, fromJoinTableColumnMap);
     }
 
 
@@ -55,15 +54,15 @@ public class SqlInsertWith {
      * @param tmpTableRelationTableMap ##insert  with 临时表，管使用的真实表信息<临时表别名,<临时表使用字段名,对象信息>>
      * @param fromJoinTableColumnMap   ##  <关联别名,<字段名,对象>>
      */
-    public static void operateWithAs(List<SQLWithSubqueryClause.Entry> withAdNodeList, Map<String, Map<String, InsertWithOnSqlTmp>> tmpTableRelationTableMap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
+    private static void operateWithAs(List<SQLWithSubqueryClause.Entry> withAdNodeList, Map<String, String> tableAliasmap, Map<String, Map<String, InsertWithOnSqlTmp>> tmpTableRelationTableMap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
 
         for (SQLWithSubqueryClause.Entry sqlNode : withAdNodeList) {
-           SQLSelect withSqlSelect =  sqlNode.getSubQuery();
+            SQLSelect withSqlSelect = sqlNode.getSubQuery();
 
             if (withSqlSelect.getQuery() instanceof SQLSelectQueryBlock) {
 
                 //处理insert with as部分，单个select sql
-                opSqlWithItem(sqlNode.getAlias(),withSqlSelect, tmpTableRelationTableMap, fromJoinTableColumnMap);
+                opSqlWithItem(sqlNode.getAlias(), withSqlSelect, tableAliasmap, tmpTableRelationTableMap, fromJoinTableColumnMap);
             } else {
                 log.error("unknow type sqlNode in operateWithAs! sql:[" + sqlNode.toString() + "]");
             }
@@ -72,12 +71,13 @@ public class SqlInsertWith {
 
     /**
      * 处理insert with as部分，单个select sql
-     * @param tmpTableAlias 临时表别名
+     *
+     * @param tmpTableAlias            临时表别名
      * @param withSqlSelect
      * @param tmpTableRelationTableMap
      * @param fromJoinTableColumnMap
      */
-    private static void opSqlWithItem(String tmpTableAlias,SQLSelect withSqlSelect, Map<String, Map<String, InsertWithOnSqlTmp>> tmpTableRelationTableMap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
+    private static void opSqlWithItem(String tmpTableAlias, SQLSelect withSqlSelect, Map<String, String> tableAliasmap, Map<String, Map<String, InsertWithOnSqlTmp>> tmpTableRelationTableMap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
 
         /**
          * insert into table2
@@ -91,11 +91,11 @@ public class SqlInsertWith {
 
 
         //解析源数据表和别名<别名,表名>
-        Map<String, String> tableAliasmap = SqlSelectFrom.generateSelectTables(withSqlSelect, fromJoinTableColumnMap);
+        SqlSelectFrom.generateSelectTables(withSqlSelect, tableAliasmap, fromJoinTableColumnMap);
 
 
         //选择字段
-        List<SelectTableColumnTmpBase> withAsColumns = SqlSelectInfo.operateSqlSelect(withSqlSelect, fromJoinTableColumnMap);
+        List<SelectTableColumnTmpBase> withAsColumns = SqlSelectInfo.operateSqlSelect(withSqlSelect, tableAliasmap, fromJoinTableColumnMap);
         if (withAsColumns == null) {
             return;
         }

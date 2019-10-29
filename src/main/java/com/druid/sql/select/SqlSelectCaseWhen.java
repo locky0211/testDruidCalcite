@@ -2,9 +2,12 @@ package com.druid.sql.select;
 
 import com.alibaba.druid.sql.ast.SQLExpr;
 import com.alibaba.druid.sql.ast.expr.SQLCaseExpr;
+import com.calcite.temp.fromjoin.FromJoinTableColumnTmp;
+import com.druid.sql.from.SqlSelectFrom;
 import com.tmp.SelectSqlTmp;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 处理 select case when 类型
@@ -17,7 +20,7 @@ public class SqlSelectCaseWhen {
      * @param sqlCaseExpr
      * @return
      */
-    public static SelectSqlTmp opSqlSelectCaseWhen(SQLCaseExpr sqlCaseExpr) {
+    public static SelectSqlTmp opSqlSelectCaseWhen(SQLCaseExpr sqlCaseExpr, Map<String, String> tableAliasmap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
 
         //eg:
         /**
@@ -42,7 +45,8 @@ public class SqlSelectCaseWhen {
             SQLExpr valueSQLExpr = caseItem.getValueExpr();
 
             //select 单个部分，SelectSqlTmp 记录信息
-            SqlSelectInfo.opSelectSqlTmp(valueSQLExpr, selectSqlTmp);
+            SqlSelectInfo.opSelectSqlTmp(valueSQLExpr, selectSqlTmp, tableAliasmap, fromJoinTableColumnMap);
+
         }
 
 

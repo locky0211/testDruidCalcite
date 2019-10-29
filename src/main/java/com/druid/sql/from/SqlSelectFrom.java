@@ -27,7 +27,7 @@ public class SqlSelectFrom {
     private static Logger log = LoggerFactory.getLogger(SqlSelectFrom.class);
 
 
-    public static Map<String, String> generateSelectTables(SQLSelect sqlSelect, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
+    public static void generateSelectTables(SQLSelect sqlSelect, Map<String, String> tableNameAlias, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
 
         SQLSelectQuery sqlSelectQuery = sqlSelect.getQuery();
 
@@ -35,21 +35,21 @@ public class SqlSelectFrom {
             //insert .... select ... from... MINUS ......
 
             SQLUnionQuery sqlUnionQuery = (SQLUnionQuery) sqlSelectQuery;
-            Map<String, String> tableNameAlias = new HashMap<String, String>();
 
-            tableNameAlias.putAll(generateSelectTables((sqlUnionQuery).getLeft(), fromJoinTableColumnMap));//select 部分
+            generateSelectTables((sqlUnionQuery).getLeft(), tableNameAlias, fromJoinTableColumnMap);//select 部分
 
             if (sqlUnionQuery.getOperator() == SQLUnionOperator.MINUS || //  去最小值
                     sqlUnionQuery.getOperator() == SQLUnionOperator.EXCEPT //排除
                     ) {
-                return tableNameAlias;
+                return;
             }
 
-            tableNameAlias.putAll(generateSelectTables((sqlUnionQuery).getRight(), fromJoinTableColumnMap));//MINUS 部分
-            return tableNameAlias;
+            generateSelectTables((sqlUnionQuery).getRight(), tableNameAlias, fromJoinTableColumnMap);//MINUS 部分
+            return;
         }
 
-        return generateSelectTables(sqlSelectQuery, fromJoinTableColumnMap);
+        //解析源数据表和别名
+        generateSelectTables(sqlSelectQuery, tableNameAlias, fromJoinTableColumnMap);
 
     }
 
@@ -58,8 +58,10 @@ public class SqlSelectFrom {
      * 解析源数据表和别名
      *
      * @param sqlSelectQuery
+     * @param tableNameAlias         <别名,表名>
+     * @param fromJoinTableColumnMap
      */
-    private static Map<String, String> generateSelectTables(SQLSelectQuery sqlSelectQuery, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
+    private static void generateSelectTables(SQLSelectQuery sqlSelectQuery, Map<String, String> tableNameAlias, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
 
 
         if (!(sqlSelectQuery instanceof SQLSelectQueryBlock)) {
@@ -73,12 +75,9 @@ public class SqlSelectFrom {
         if (SqlSelectUtil.checkSelectAll(sqlSelectQueryBlock.getSelectList())) {
 
             SQLSubqueryTableSource subQueryTableSource = (SQLSubqueryTableSource) sqlSelectQueryBlock.getFrom();
-            return generateSelectTables(subQueryTableSource.getSelect(), fromJoinTableColumnMap);
+            generateSelectTables(subQueryTableSource.getSelect(), tableNameAlias, fromJoinTableColumnMap);
+            return;
         }
-
-
-        //<别名,表名>
-        Map<String, String> tableNameAlias = new HashMap<String, String>();
 
         //解析select表和别名关系
         SQLTableSource sqlNode1From = sqlSelectQueryBlock.getFrom();
@@ -93,7 +92,7 @@ public class SqlSelectFrom {
             SQLSubqueryTableSource selectTableSource = (SQLSubqueryTableSource) sqlNode1From;
 
             //from 后面是sql,from (select ....)
-            generateSelectTables(selectTableSource.getSelect(), fromJoinTableColumnMap);
+            generateSelectTables(selectTableSource.getSelect(), tableNameAlias, fromJoinTableColumnMap);
 
         } else if (sqlNode1From instanceof SQLExprTableSource) {
 
@@ -115,7 +114,6 @@ public class SqlSelectFrom {
             throw new RuntimeException("未知类型：sqlNode1From");
         }
 
-        return tableNameAlias;
     }
 
 
@@ -208,7 +206,7 @@ public class SqlSelectFrom {
             SQLSubqueryTableSource selectTableSource = (SQLSubqueryTableSource) sqlNode1FromJoinRight;
 
             //获取所有关联表、别名
-            tableNameAlias.putAll(generateSelectTables(selectTableSource.getSelect(), fromJoinTableColumnMap));
+            generateSelectTables(selectTableSource.getSelect(), tableNameAlias, fromJoinTableColumnMap);
             //别名
             String joinTmpTableAlias = sqlNode1FromJoinRight.getAlias();
 
@@ -216,7 +214,7 @@ public class SqlSelectFrom {
             tableNameAlias.put(joinTmpTableAlias, joinTmpTableAlias);
 
             //选择字段
-            List<SelectTableColumnTmpBase> withAsColumns = SqlSelectInfo.operateSqlSelect(selectTableSource.getSelect(), fromJoinTableColumnMap);
+            List<SelectTableColumnTmpBase> withAsColumns = SqlSelectInfo.operateSqlSelect(selectTableSource.getSelect(), tableNameAlias, fromJoinTableColumnMap);
             if (CollectionUtils.isNotEmpty(withAsColumns)) {
 
                 //关联表别名，使用字段
@@ -232,16 +230,16 @@ public class SqlSelectFrom {
 
         } else if (sqlNode1FromJoinRight instanceof SQLExprTableSource) {
 
-            opTableInfo((SQLExprTableSource) sqlNode1FromJoinRight, tableNameAlias);
+            opTableInfo((SQLExprTableSource) sqlNode1FromJoinRight, tableNameAlias, fromJoinTableColumnMap);
         } else {
             log.error("joinTableAlias unKnow Type! class:[" + sqlNode1FromJoinRight.toString() + "]");
         }
     }
 
 
-    private static void opTableInfo(SQLExprTableSource sqlNode1FromJoinRight, Map<String, String> tableNameAlias) {
+    private static void opTableInfo(SQLExprTableSource sqlNode1FromJoinRight, Map<String, String> tableNameAlias, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
 
-        SelectTableColumnTmpBase tableInfo = SqlSelectInfo.opSelectColumn(sqlNode1FromJoinRight.getAlias(), (sqlNode1FromJoinRight).getExpr());
+        SelectTableColumnTmpBase tableInfo = SqlSelectInfo.opSelectColumn(sqlNode1FromJoinRight.getAlias(), (sqlNode1FromJoinRight).getExpr(), tableNameAlias, fromJoinTableColumnMap);
 
         if (tableInfo instanceof SelectTableColumnTmp) {
 
@@ -249,7 +247,7 @@ public class SqlSelectFrom {
             tableNameAlias.put(sqlNode1FromJoinRight.getAlias(), StringUtils.isBlank(columnTmp.getTableAlias()) ? columnTmp.getColumnNames() : columnTmp.getTableAlias() + "." + columnTmp.getColumnNames());
 
         } else {
-            System.out.println();
+            log.error("处理做表关联关系异常未知类型！");
         }
 
     }
