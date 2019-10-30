@@ -14,8 +14,7 @@ import com.tmp.SelectTableColumnTmp;
 import com.tmp.SelectTableColumnTmpBase;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +22,7 @@ import java.util.Map;
 
 public class SqlInsertWith {
 
-    private static Logger log = LoggerFactory.getLogger(SqlInsertWith.class);
+    private static Logger log = Logger.getLogger(SqlInsertWith.class);
 
     /**
      * 有临时表  insert ..... with as...select ...

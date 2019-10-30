@@ -62,6 +62,7 @@ public class AtLastUtil {
             switch (selectColumnTmpBase.getType()) {
                 case SelectTableColumnTmp.TYPE_1://直接表字段
                 case SelectTableColumnTmp.TYPE_3://额外处理
+                case SelectTableColumnTmp.TYPE_4://UNION 多表数据合并
 
                     if (selectColumnTmpBase instanceof SelectTableColumnTmp) {
 

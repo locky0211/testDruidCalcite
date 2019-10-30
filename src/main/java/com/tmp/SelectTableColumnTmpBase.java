@@ -10,6 +10,7 @@ public abstract class SelectTableColumnTmpBase {
     public static final int TYPE_1 = 1;//直接表字段
     public static final int TYPE_2 = 2;//默认值
     public static final int TYPE_3 = 3;//额外处理
+    public static final int TYPE_4 = 4;//UNION 多表数据合并
 
 
     public int type;

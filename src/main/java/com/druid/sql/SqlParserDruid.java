@@ -15,8 +15,7 @@ import com.druid.sql.with.SqlInsertWith;
 import com.tmp.SelectTableColumnTmpBase;
 import com.tmp.targettable.TargetTableInfo;
 import com.util.AtLastUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +27,7 @@ import java.util.Map;
  */
 public class SqlParserDruid {
 
-    private static Logger log = LoggerFactory.getLogger(SqlParserDruid.class);
+    private static Logger log = Logger.getLogger(SqlParserDruid.class);
 
     /**
      * 解析处理表目标表、源数据表信息
@@ -83,7 +82,7 @@ public class SqlParserDruid {
 
         if (stateNum == 1) {//只有一个sql
             //解析select 字段部分
-            selectTableColumnTmpBases.addAll(SqlSelectInfo.operateSqlSelect(insertSqlState.getQuery(), tableAliasmap, fromJoinTableColumnMap));
+            selectTableColumnTmpBases.addAll(SqlSelectInfo.operateSqlSelectTop(insertSqlState.getQuery(), tableAliasmap, fromJoinTableColumnMap));
 
             // from 部分
             SqlSelectFrom.generateSelectTables(insertSqlState.getQuery(), tableAliasmap, fromJoinTableColumnMap);
@@ -117,7 +116,7 @@ public class SqlParserDruid {
                 }
 
                 // from 部分
-                SqlSelectFrom.generateSelectTables(insertSqlState.getQuery(), tableAliasmap, fromJoinTableColumnMap);
+                SqlSelectFrom.generateSelectTables(selectSqlState.getSelect(), tableAliasmap, fromJoinTableColumnMap);
             }
         }
 
@@ -126,7 +125,7 @@ public class SqlParserDruid {
         AtLastUtil.atLastStep(targetTableInfo, selectTableColumnTmpBases, tableAliasmap, tmpTableRelationTableMap, fromJoinTableColumnMap);
 
 
-        System.out.println(JSONObject.toJSONString(targetTableInfo));
+        log.info(JSONObject.toJSONString(targetTableInfo));
 
     }
 

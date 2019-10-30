@@ -9,6 +9,7 @@ import com.druid.util.SqlSelectUtil;
 import com.tmp.SelectSqlTmp;
 import com.tmp.SelectTableColumnTmp;
 import com.tmp.SelectTableColumnTmpBase;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -22,11 +23,116 @@ public class SqlSelectInfo {
      * 处理 select 部分
      *
      * @param sqlSelect
+     * @param tableAliasmap
+     * @param fromJoinTableColumnMap
+     * @return
+     */
+    public static List<? extends SelectTableColumnTmpBase> operateSqlSelectTop(SQLSelect sqlSelect, Map<String, String> tableAliasmap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
+
+        SQLSelectQuery sqlSelectQuery = sqlSelect.getQuery();
+
+        return operateSqlSelectTop(sqlSelectQuery, tableAliasmap, fromJoinTableColumnMap);
+    }
+
+
+    /**
+     * 处理 select 部分
+     *
+     * @param sqlSelectQuery
+     * @param tableAliasmap
+     * @param fromJoinTableColumnMap
+     * @return
+     */
+    private static List<? extends SelectTableColumnTmpBase> operateSqlSelectTop(SQLSelectQuery sqlSelectQuery, Map<String, String> tableAliasmap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
+
+        if (sqlSelectQuery instanceof SQLUnionQuery) {
+            //insert .... select ... from... MINUS ......
+
+            SQLUnionQuery sqlUnionQuery = (SQLUnionQuery) sqlSelectQuery;
+
+            List<SelectSqlTmp> UnionColumnTmps = new ArrayList<SelectSqlTmp>();
+
+            //并非 select × from(select ....) 的情况
+            List<? extends SelectTableColumnTmpBase> selectColumnTmps = operateSqlSelectTop(sqlUnionQuery.getLeft(), tableAliasmap, fromJoinTableColumnMap);
+
+            //处理Union 方式，select字段
+            opUnionSelectColumn(UnionColumnTmps, selectColumnTmps);
+
+            if (sqlUnionQuery.getOperator() == SQLUnionOperator.MINUS || //  去最小值
+                    sqlUnionQuery.getOperator() == SQLUnionOperator.EXCEPT //排除
+                    ) {
+                return selectColumnTmps;
+            }
+
+            selectColumnTmps = operateSqlSelectTop(sqlUnionQuery.getRight(), tableAliasmap, fromJoinTableColumnMap);
+
+            //处理Union 方式，select字段
+            opUnionSelectColumn(UnionColumnTmps, selectColumnTmps);
+            return UnionColumnTmps;
+        }
+
+        //解析源数据表和别名
+        return operateSqlSelect(sqlSelectQuery, tableAliasmap, fromJoinTableColumnMap);
+    }
+
+
+    /**
+     * 处理Union 方式，select字段
+     *
+     * @param unionColumnTmps
+     * @param selectColumnTmps
+     */
+    private static void opUnionSelectColumn(List<SelectSqlTmp> unionColumnTmps, List<? extends SelectTableColumnTmpBase> selectColumnTmps) {
+
+        if (CollectionUtils.isEmpty(unionColumnTmps)) {
+
+            for (SelectTableColumnTmpBase columnTmpBase : selectColumnTmps) {
+
+                SelectSqlTmp selectSqlTmp = new SelectSqlTmp(SelectTableColumnTmpBase.TYPE_4);
+                selectSqlTmp.addDataBySelectTableColumnTmpBase(columnTmpBase);
+                unionColumnTmps.add(selectSqlTmp);
+            }
+        } else {
+
+            if (unionColumnTmps.size() != selectColumnTmps.size()) {
+                throw new RuntimeException("处理 UNION 数据合并的方式！ select 字段 数量不匹配!");
+            }
+
+            int columnNum = unionColumnTmps.size();
+            for (int i = 0; i < columnNum; i++) {
+
+                SelectSqlTmp selectSqlTmp = unionColumnTmps.get(i);
+                SelectTableColumnTmpBase columnTmpBase = selectColumnTmps.get(i);
+
+                selectSqlTmp.addDataBySelectTableColumnTmpBase(columnTmpBase);
+            }
+        }
+    }
+
+
+    /**
+     * 处理 select 部分
+     *
+     * @param sqlSelect
      * @return
      */
     public static List<SelectTableColumnTmpBase> operateSqlSelect(SQLSelect sqlSelect, Map<String, String> tableAliasmap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
 
         SQLSelectQuery sqlSelectQuery = sqlSelect.getQuery();
+
+        return operateSqlSelect(sqlSelectQuery, tableAliasmap, fromJoinTableColumnMap);
+
+    }
+
+
+    /**
+     * 处理 select 部分
+     *
+     * @param sqlSelectQuery
+     * @return
+     */
+    private static List<SelectTableColumnTmpBase> operateSqlSelect(SQLSelectQuery sqlSelectQuery, Map<String, String> tableAliasmap, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
+
 
         if (!(sqlSelectQuery instanceof SQLSelectQueryBlock)) {
             throw new RuntimeException("解析sql中sql部分，未知类型！[" + sqlSelectQuery.toString() + "]");
@@ -150,6 +256,8 @@ public class SqlSelectInfo {
             selectSqlTmp.addDataBySelectTableColumnTmpBase(selectTmpBases);
 
             return selectSqlTmp;
+        } else {
+            System.out.println();
         }
 
         //未知

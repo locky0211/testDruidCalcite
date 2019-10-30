@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0125a3a6-3332-4caa-8513-861d5a70c446" name="Default" comment="">
+    <list default="true" id="0125a3a6-3332-4caa-8513-861d5a70c446" name="Default" comment="结构调整">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_10_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_10_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_slf4j_impl_2_10_0.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/druid/DruidMain.java" afterPath="$PROJECT_DIR$/src/main/java/com/druid/DruidMain.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/druid/sql/SqlParserDruid.java" afterPath="$PROJECT_DIR$/src/main/java/com/druid/sql/SqlParserDruid.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java" afterPath="$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectCaseWhen.java" afterPath="$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectCaseWhen.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/druid/sql/with/SqlInsertWith.java" afterPath="$PROJECT_DIR$/src/main/java/com/druid/sql/with/SqlInsertWith.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmp/SelectSqlTmp.java" afterPath="$PROJECT_DIR$/src/main/java/com/tmp/SelectSqlTmp.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tmp/SelectTableColumnTmpBase.java" afterPath="$PROJECT_DIR$/src/main/java/com/tmp/SelectTableColumnTmpBase.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/util/AtLastUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/util/AtLastUtil.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+      <change beforePath="$PROJECT_DIR$/testDruidCalcite.iml" afterPath="$PROJECT_DIR$/testDruidCalcite.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,56 +39,16 @@
     <expand />
     <select />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="SqlSelectTableColumns.java" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/sql/SqlSelectTableColumns.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="153">
-                    <caret line="161" column="85" lean-forward="false" selection-start-line="161" selection-start-column="85" selection-end-line="161" selection-end-column="85" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="FromJoinTableColumnTmp.java" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/temp/fromjoin/FromJoinTableColumnTmp.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="408">
-                    <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="33" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="SqlBasicCallCalcite.java" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/sql/SqlBasicCallCalcite.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="51">
-                    <caret line="92" column="34" lean-forward="false" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="34" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SqlSelectInfo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SqlSelectInfo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+            <state relative-caret-position="146">
+              <caret line="61" column="72" lean-forward="false" selection-start-line="61" selection-start-column="72" selection-end-line="61" selection-end-column="72" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2062#2088#0" expanded="true" />
+                <element signature="e#1753#1767#0" expanded="true" />
+                <element signature="e#5786#5812#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,11 +58,18 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/SelectSqlTmp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding>
-                <element signature="e#592#593#0" expanded="true" />
-                <element signature="e#631#632#0" expanded="true" />
-              </folding>
+              <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectTableColumnTmpBase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/SelectTableColumnTmpBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,84 +77,10 @@
       <file leaf-file-name="SqlSelectFrom.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            <state relative-caret-position="427">
+              <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SqlParserDruid.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/SqlParserDruid.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="115" column="41" lean-forward="false" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2706#2747#0" expanded="true" />
-                <element signature="e#2888#2933#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLSelect.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/statement/SQLSelect.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="53" column="33" lean-forward="false" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-              <folding>
-                <marker date="1568702889227" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1568702889227" expanded="false" signature="159:767" ph="..." />
-                <marker date="1568702889227" expanded="true" signature="1207:1214" ph="{}" />
-                <marker date="1568702889227" expanded="true" signature="1252:1374" ph="{...}" />
-                <marker date="1568702889227" expanded="false" signature="1405:1416" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="1466:1472" ph=" }" />
-                <marker date="1568702889227" expanded="false" signature="1516:1527" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="1548:1554" ph=" }" />
-                <marker date="1568702889227" expanded="true" signature="1606:1617" ph=" { " />
-                <marker date="1568702889227" expanded="true" signature="1642:1648" ph=" }" />
-                <marker date="1568702889227" expanded="false" signature="1717:1728" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="1761:1767" ph=" }" />
-                <marker date="1568702889227" expanded="false" signature="1805:1816" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="1834:1840" ph=" }" />
-                <marker date="1568702889227" expanded="true" signature="1889:1999" ph="{...}" />
-                <marker date="1568702889227" expanded="false" signature="2047:2058" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="2148:2154" ph=" }" />
-                <marker date="1568702889227" expanded="false" signature="2190:2201" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="2221:2227" ph=" }" />
-                <marker date="1568702889227" expanded="true" signature="2276:2394" ph="{...}" />
-                <marker date="1568702889227" expanded="true" signature="2446:2907" ph="{...}" />
-                <marker date="1568702889227" expanded="true" signature="2935:3280" ph="{...}" />
-                <marker date="1568702889227" expanded="true" signature="3320:4363" ph="{...}" />
-                <marker date="1568702889227" expanded="true" signature="4406:4971" ph="{...}" />
-                <marker date="1568702889227" expanded="true" signature="5002:5730" ph="{...}" />
-                <marker date="1568702889227" expanded="true" signature="5761:6836" ph="{...}" />
-                <marker date="1568702889227" expanded="false" signature="6867:6878" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="7146:7152" ph=" }" />
-                <marker date="1568702889227" expanded="false" signature="7191:7202" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="7226:7232" ph=" }" />
-                <marker date="1568702889227" expanded="true" signature="7288:7422" ph="{...}" />
-                <marker date="1568702889227" expanded="false" signature="7456:7467" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="7489:7495" ph=" }" />
-                <marker date="1568702889227" expanded="false" signature="7544:7555" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="7582:7588" ph=" }" />
-                <marker date="1568702889227" expanded="true" signature="7633:7779" ph="{...}" />
-                <marker date="1568702889227" expanded="false" signature="7818:7829" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="7895:7901" ph=" }" />
-                <marker date="1568702889227" expanded="false" signature="7935:7946" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="7967:7973" ph=" }" />
-                <marker date="1568702889227" expanded="true" signature="8021:8143" ph="{...}" />
-                <marker date="1568702889227" expanded="false" signature="8175:8186" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="8205:8211" ph=" }" />
-                <marker date="1568702889227" expanded="true" signature="8255:8369" ph="{...}" />
-                <marker date="1568702889227" expanded="false" signature="8402:8413" ph=" { " />
-                <marker date="1568702889227" expanded="false" signature="8433:8439" ph=" }" />
-                <marker date="1568702889227" expanded="true" signature="8485:8603" ph="{...}" />
-                <marker date="1568702889227" expanded="true" signature="8657:8914" ph="{...}" />
-                <marker date="1568702889227" expanded="true" signature="8959:9590" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -188,51 +89,57 @@
       <file leaf-file-name="SqlInsertWith.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/with/SqlInsertWith.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="56" column="11" lean-forward="false" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SqlParserCalcite.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/sql/SqlParserCalcite.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="119" column="24" lean-forward="false" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
+            <state relative-caret-position="348">
+              <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
               <folding>
-                <element signature="e#1908#1934#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SqlSelectCaseWhen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectCaseWhen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="22" column="110" lean-forward="false" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="110" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DruidMain.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DruidMain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/DruidMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="27" column="49" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+            <state relative-caret-position="-6">
+              <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainClass.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/MainClass.java">
+      <file leaf-file-name="AtLastUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/util/AtLastUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5857">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="453">
+              <caret line="87" column="53" lean-forward="false" selection-start-line="87" selection-start-column="53" selection-end-line="87" selection-end-column="53" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TargetTableColumn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/targettable/TargetTableColumn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SqlParserDruid.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/SqlParserDruid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="410">
+              <caret line="124" column="29" lean-forward="false" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2388#2414#0" expanded="true" />
+                <element signature="e#2502#2518#0" expanded="true" />
+                <element signature="e#2674#2715#0" expanded="true" />
+                <element signature="e#2856#2901#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -268,11 +175,19 @@
       <find>selectTableColumn</find>
       <find>selectTableColumnSql</find>
       <find>opFromJoinTableColumnTmp</find>
+      <find>T1</find>
+      <find>putAll</find>
+      <find>GLACAACA</find>
+      <find>SQLU</find>
     </findStrings>
+    <replaceStrings>
+      <replace>t1</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>D:\eclipse-workspace2\testDruidCalcite\src\main\java\com\sql</dir>
       <dir>D:\eclipse-workspace2\testDruidCalcite\src\main\java</dir>
       <dir>D:\eclipse-workspace2\testDruidCalcite\src\main\java\com\calcite</dir>
+      <dir>D:\eclipse-workspace2\testDruidCalcite\src\main\java\com\druid</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -291,10 +206,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/util/ParseInsertUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/test/SqlParserSample.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/util/DruidUtil.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/temp/TargetTableColumn.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/temp/SelectTableColumnTmpBase.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/sql/SqlCreateWithAsCalcite.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/temp/insertwith/InsertWithTmp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/util/SqlSelectUtil.java" />
@@ -318,7 +231,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/druid/tmp/InsertTargetTableColumn.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/temp/SelectTableColumnTmp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/calcite/temp/SelectTableColumnTmp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tmp/SelectTableColumnTmpBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/calcite/temp/SelectTableColumnTmpBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tmp/TargetTableInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/druid/sql/SqlInsertTableInfo.java" />
@@ -328,15 +240,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/tmp/SelectTableColumnTmp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/druid/sql/SqlSelectInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/druid/sql/insert/SqlInsertTableInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/tmp/SelectSqlTmp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/calcite/sql/SqlParserCalcite.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/util/AtLastUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/druid/DruidMain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectCaseWhen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/druid/sql/SqlParserDruid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tmp/SelectSqlTmp.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/druid/sql/with/SqlInsertWith.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/druid/sql/SqlParserDruid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/druid/DruidMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/tmp/SelectTableColumnTmpBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/util/AtLastUtil.java" />
       </list>
     </option>
   </component>
@@ -355,11 +270,27 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="testDruidCalcite" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="testDruidCalcite" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1928" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -521,6 +452,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -561,25 +493,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="calcite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testDruidCalcite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="testDruidCalcite" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="calcite" type="462c0819:PsiDirectoryNode" />
-              <item name="sql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testDruidCalcite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="testDruidCalcite" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="druid" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -591,17 +504,6 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="druid" type="462c0819:PsiDirectoryNode" />
               <item name="sql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testDruidCalcite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="testDruidCalcite" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="druid" type="462c0819:PsiDirectoryNode" />
-              <item name="sql" type="462c0819:PsiDirectoryNode" />
-              <item name="from" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testDruidCalcite" type="b2602c69:ProjectViewProjectNode" />
@@ -621,7 +523,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="tmp" type="462c0819:PsiDirectoryNode" />
+              <item name="druid" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testDruidCalcite" type="b2602c69:ProjectViewProjectNode" />
@@ -636,10 +539,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -902,7 +804,8 @@
       <workItem from="1571971036863" duration="4123000" />
       <workItem from="1571985587245" duration="3304000" />
       <workItem from="1572224877406" duration="27062000" />
-      <workItem from="1572324028820" duration="12613000" />
+      <workItem from="1572324028820" duration="13233000" />
+      <workItem from="1572415189649" duration="11243000" />
     </task>
     <task id="LOCAL-00001" summary="目录结构修改">
       <created>1572230481866</created>
@@ -925,14 +828,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572334549576</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="结构调整">
+      <created>1572337944677</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1572337944677</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153604000" />
+    <option name="totallyTimeSpent" value="165467000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -940,21 +850,21 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41917503" sideWeight="0.50319827" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0033482143" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2638889" sideWeight="0.4968017" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0021321962" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40066963" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37611607" sideWeight="0.4968017" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2217484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1945629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09594883" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22008547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21986607" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12820514" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2622768" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -980,126 +890,44 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/SqlParserDruid.java</url>
-          <line>88</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java</url>
+          <line>58</line>
           <properties />
-          <option name="timeStamp" value="280" />
+          <option name="timeStamp" value="340" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java</url>
-          <line>158</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java</url>
+          <line>60</line>
           <properties />
-          <option name="timeStamp" value="282" />
+          <option name="timeStamp" value="343" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java</url>
-          <line>195</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java</url>
+          <line>70</line>
           <properties />
-          <option name="timeStamp" value="283" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java</url>
-          <line>249</line>
-          <properties />
-          <option name="timeStamp" value="284" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java</url>
-          <line>160</line>
-          <properties />
-          <option name="timeStamp" value="285" />
+          <option name="timeStamp" value="346" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/SqlParserDruid.java</url>
-          <line>79</line>
+          <line>124</line>
           <properties />
-          <option name="timeStamp" value="287" />
+          <option name="timeStamp" value="347" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java</url>
-          <line>28</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/util/AtLastUtil.java</url>
+          <line>29</line>
           <properties />
-          <option name="timeStamp" value="288" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java</url>
-          <line>141</line>
-          <properties />
-          <option name="timeStamp" value="289" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="290" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="291" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java</url>
-          <line>87</line>
-          <properties />
-          <option name="timeStamp" value="292" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectCaseWhen.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="293" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java</url>
-          <line>185</line>
-          <properties />
-          <option name="timeStamp" value="294" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java</url>
-          <line>117</line>
-          <properties />
-          <option name="timeStamp" value="295" />
+          <option name="timeStamp" value="348" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="296" />
+      <option name="time" value="349" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/statement/SQLSelectItem.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/SQLExpr.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/SQLExprImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="74" lean-forward="false" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/expr/SQLCharExpr.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="16" column="43" lean-forward="true" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/expr/SQLNCharExpr.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1121,14 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/targettable/TargetTableColumn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/expr/SQLAllColumnExpr.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1140,7 +960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1199,59 +1018,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/insert/SqlInsertTableInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/expr/SQLCaseExpr.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3281">
           <caret line="218" column="22" lean-forward="false" selection-start-line="218" selection-start-column="15" selection-end-line="218" selection-end-column="22" />
-          <folding>
-            <marker date="1568702889227" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1568702889227" expanded="false" signature="154:677" ph="..." />
-            <marker date="1568702889227" expanded="true" signature="972:979" ph="{}" />
-            <marker date="1568702889227" expanded="false" signature="1014:1025" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="1047:1053" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="1103:1229" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="1263:1274" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="1295:1301" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="1349:1471" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="1517:1528" ph=" { " />
-            <marker date="1568702889227" expanded="true" signature="1546:1552" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="1601:1715" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="1767:2012" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="2044:2345" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="2404:2673" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="2701:3042" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="3082:4121" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="4154:4616" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="4659:5217" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="5247:5258" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="5306:5312" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="5405:8797" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="5561:5572" ph="{}" />
-            <marker date="1568702889227" expanded="true" signature="5636:5739" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="5782:5797" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="5823:5833" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="5895:6057" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="6096:6111" ph=" { " />
-            <marker date="1568702889227" expanded="true" signature="6133:6143" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="6197:6343" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="6399:6622" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="6654:6948" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="6992:7925" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="7967:8295" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="8341:8356" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="8399:8409" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="8472:8791" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1273,7 +1043,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,7 +1050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="60" column="25" lean-forward="false" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1289,39 +1057,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <marker date="1568702889227" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1568702889227" expanded="false" signature="159:412" ph="..." />
-            <marker date="1568702889227" expanded="true" signature="669:676" ph="{}" />
-            <marker date="1568702889227" expanded="false" signature="721:732" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="751:757" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="787:798" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="816:822" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="863:932" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="963:974" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="1024:1030" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="1068:1190" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="1237:1248" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="1267:1273" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="1308:1319" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="1386:1392" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="1426:1437" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="1455:1461" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="1496:1507" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="1529:1535" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="1585:1711" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="1759:1770" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="1816:1822" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="1858:2041" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="2104:2295" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="2359:2370" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="2382:2388" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="2461:2667" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="2741:2752" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="2764:2770" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="2828:2925" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="2986:3100" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1340,7 +1075,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="52" column="28" lean-forward="true" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1348,10 +1082,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding>
-            <marker date="1568702889227" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1568702889227" expanded="false" signature="159:302" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1359,26 +1089,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="35" />
-          <folding>
-            <marker date="1568702889227" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1568702889227" expanded="true" signature="339:346" ph="{}" />
-            <marker date="1568702889227" expanded="false" signature="395:406" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="419:425" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="493:554" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="607:618" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="641:647" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="704:715" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="742:748" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="782:793" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="812:818" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="864:978" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="1030:1167" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="1210:1300" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="1352:1479" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="1523:1638" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="1711:2070" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="2145:2508" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1394,140 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding>
-            <marker date="1568702889227" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1568702889227" expanded="false" signature="159:1073" ph="..." />
-            <marker date="1568702889227" expanded="true" signature="2223:2230" ph="{}" />
-            <marker date="1568702889227" expanded="false" signature="2271:2282" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="2299:2305" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="2344:2355" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="2398:2404" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="2455:2561" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="2609:2620" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="2640:2646" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="2707:2825" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="2856:2867" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="2885:2891" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="2933:3043" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="3089:3326" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="3362:3373" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="3393:3399" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="3448:3566" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="3610:3621" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="3649:3655" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="3720:3870" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="3905:3916" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="3942:3948" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="4001:4012" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="4047:4053" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="4101:4112" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="4135:4141" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="4193:4265" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="4310:4321" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="4365:4371" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="4430:4441" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="4492:4498" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="4535:4546" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="4563:4569" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="4616:4722" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="4794:4952" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="5010:5248" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="5306:5571" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="5609:5620" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="5646:5652" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="5709:5720" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="5755:5761" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="5795:5806" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="5828:5834" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="5883:5894" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="5921:5927" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="5958:5969" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="5988:5994" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="6037:6048" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="6069:6075" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="6109:6120" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="6141:6147" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="6195:6317" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="6349:6360" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="6378:6384" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="6427:6537" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="6568:6579" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="6639:6645" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="6687:6819" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="6851:6862" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="6920:6926" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="6970:7101" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="7131:7142" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="7160:7166" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="7207:7218" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="7237:7243" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="7278:7289" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="7311:7317" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="7367:7493" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="7528:7539" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="7561:7567" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="7617:7743" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="7775:7786" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="7806:7812" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="7857:7868" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="7891:7897" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="7941:7952" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="7977:7983" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="8034:8045" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="8064:8070" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="8125:8325" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="8377:9100" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="9128:9757" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="9797:11683" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="11724:11833" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="11877:12017" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="12054:12065" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="12127:12133" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="12192:12519" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="12568:13960" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="13992:14003" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="14023:14029" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="14074:14085" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="14108:14114" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="14171:14182" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="14249:14255" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="14323:14334" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="14412:14418" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="14488:14499" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="14581:14587" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="14646:14800" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="14856:15041" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="15099:15389" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="15434:15445" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="15486:15492" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="15555:16377" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="16430:17099" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="17162:17357" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="17409:17613" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="17658:17769" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="17827:18084" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="18140:20069" ph="{...}" />
-            <marker date="1568702889227" expanded="true" signature="20119:20348" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="20389:20400" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="20429:20435" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="20525:20640" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="20683:20694" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="20727:20733" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="20783:20794" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="20812:20818" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="20863:20985" ph="{...}" />
-            <marker date="1568702889227" expanded="false" signature="21039:21050" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="21069:21075" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="21106:21117" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="21167:21173" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="21204:21215" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="21234:21240" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="21282:21293" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="21314:21320" ph=" }" />
-            <marker date="1568702889227" expanded="false" signature="21361:21372" ph=" { " />
-            <marker date="1568702889227" expanded="false" signature="21392:21398" ph=" }" />
-            <marker date="1568702889227" expanded="true" signature="21439:21634" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1535,7 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
           <caret line="128" column="25" lean-forward="false" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1547,35 +1122,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/statement/SQLUnionQuery.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/statement/SQLUnionOperator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/util/AtLastUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="278" column="0" lean-forward="false" selection-start-line="278" selection-start-column="0" selection-end-line="278" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/sql/SqlSelectTableColumns.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="2516">
           <caret line="161" column="85" lean-forward="false" selection-start-line="161" selection-start-column="85" selection-end-line="161" selection-end-column="85" />
           <folding />
         </state>
@@ -1589,96 +1138,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/SelectSqlCaseTmp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/SelectTableColumnTmpBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/sql/SqlBasicCallCalcite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="92" column="34" lean-forward="false" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5857">
+        <state relative-caret-position="68">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/DruidMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="27" column="49" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/temp/fromjoin/FromJoinTableColumnTmp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/SelectSqlTmp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="e#592#593#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/sql/SqlParserCalcite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
+        <state relative-caret-position="1700">
           <caret line="119" column="24" lean-forward="false" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
           <folding>
-            <element signature="e#1908#1934#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectCaseWhen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="22" column="110" lean-forward="false" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1908#1934#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/statement/SQLSelect.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
+        <state relative-caret-position="561">
           <caret line="53" column="33" lean-forward="false" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
           <folding>
             <marker date="1568702889227" expanded="false" signature="0:104" ph="/.../" />
@@ -1734,34 +1214,184 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/SqlParserDruid.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/temp/fromjoin/FromJoinTableColumnTmp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="115" column="41" lean-forward="false" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
+        <state relative-caret-position="408">
+          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/SelectSqlCaseTmp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="55" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="55" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2706#2747#0" expanded="true" />
-            <element signature="e#2888#2933#0" expanded="true" />
+            <element signature="e#314#336#0" expanded="false" />
+            <element signature="e#616#617#0" expanded="false" />
+            <element signature="e#655#656#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/temp/insertwith/InsertWithOnSqlTmp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="48" column="25" lean-forward="false" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
+          <folding>
+            <element signature="e#481#503#0" expanded="false" />
+            <element signature="e#1063#1064#0" expanded="false" />
+            <element signature="e#1101#1102#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/calcite/sql/SqlBasicCallCalcite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="80" column="23" lean-forward="false" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/org/slf4j/Logger.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/insert/SqlInsertTableInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectCaseWhen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="110" lean-forward="false" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="110" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/with/SqlInsertWith.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="56" column="11" lean-forward="false" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
+        <state relative-caret-position="348">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/statement/SQLUnionQuery.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="54" column="26" lean-forward="false" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/from/SqlSelectFrom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/SelectSqlTmp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/SqlParserDruid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="124" column="29" lean-forward="false" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2388#2414#0" expanded="true" />
+            <element signature="e#2502#2518#0" expanded="true" />
+            <element signature="e#2674#2715#0" expanded="true" />
+            <element signature="e#2856#2901#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/SelectTableColumnTmpBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/tmp/targettable/TargetTableColumn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/util/AtLastUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="87" column="53" lean-forward="false" selection-start-line="87" selection-start-column="53" selection-end-line="87" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.16/druid-1.1.16.jar!/com/alibaba/druid/sql/ast/statement/SQLUnionOperator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/sql/select/SqlSelectInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+        <state relative-caret-position="146">
+          <caret line="61" column="72" lean-forward="false" selection-start-line="61" selection-start-column="72" selection-end-line="61" selection-end-column="72" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2062#2088#0" expanded="true" />
+            <element signature="e#1753#1767#0" expanded="true" />
+            <element signature="e#5786#5812#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/druid/DruidMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -118,14 +118,36 @@ public class SelectSqlTmp extends SelectTableColumnTmpBase {
             SelectTableColumnTmp columnTmp = (SelectTableColumnTmp) columnTmpBase;
             addSourceTableInfo(columnTmp.getTableAlias(), columnTmp.getColumnNames());
 
-        } else if (columnTmpBase instanceof SelectSqlTmp) {
+        } else {
 
-            SelectSqlTmp columnTmp = (SelectSqlTmp) columnTmpBase;
-            getTableAliaColumns().putAll(columnTmp.getTableAliaColumns());
+            Map<String, List<String>> tableAliaColumnsThis = null;
 
-        } else if (columnTmpBase instanceof SelectSqlCaseTmp) {
-            SelectSqlCaseTmp columnTmp = (SelectSqlCaseTmp) columnTmpBase;
-            getTableAliaColumns().putAll(columnTmp.getTableAliaColumns());
+            if (columnTmpBase instanceof SelectSqlTmp) {
+                SelectSqlTmp columnTmp = (SelectSqlTmp) columnTmpBase;
+
+                tableAliaColumnsThis = columnTmp.getTableAliaColumns();
+
+            } else if (columnTmpBase instanceof SelectSqlCaseTmp) {
+                SelectSqlCaseTmp columnTmp = (SelectSqlCaseTmp) columnTmpBase;
+
+                tableAliaColumnsThis = columnTmp.getTableAliaColumns();
+
+            } else {
+                throw new RuntimeException("unKnow SelectTableColumnTmpBase type!");
+            }
+
+            for (String alias : tableAliaColumnsThis.keySet()) {
+
+                List<String> tableColumns = this.tableAliaColumns.get(alias);
+                if (tableColumns == null) {
+
+                    tableColumns = new ArrayList<String>();
+                    tableAliaColumns.put(alias, tableColumns);
+                }
+                tableColumns.addAll(tableAliaColumnsThis.get(alias));
+            }
+
         }
+
     }
 }

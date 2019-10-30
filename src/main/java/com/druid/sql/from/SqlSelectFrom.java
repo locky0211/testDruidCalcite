@@ -12,8 +12,7 @@ import com.tmp.SelectTableColumnTmp;
 import com.tmp.SelectTableColumnTmpBase;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,8 +22,7 @@ import java.util.Map;
  * 处理select ...from  中from部分
  */
 public class SqlSelectFrom {
-
-    private static Logger log = LoggerFactory.getLogger(SqlSelectFrom.class);
+    private static Logger log = Logger.getLogger(SqlSelectFrom.class);
 
 
     public static void generateSelectTables(SQLSelect sqlSelect, Map<String, String> tableNameAlias, Map<String, Map<String, FromJoinTableColumnTmp>> fromJoinTableColumnMap) {
