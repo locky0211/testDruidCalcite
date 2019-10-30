@@ -256,12 +256,25 @@ public class SqlSelectInfo {
             selectSqlTmp.addDataBySelectTableColumnTmpBase(selectTmpBases);
 
             return selectSqlTmp;
-        } else {
-            System.out.println();
+        } if (sqlExpr instanceof SQLAggregateExpr) {// select 语句
+
+            SQLAggregateExpr sqlAggregateExpr = (SQLAggregateExpr) sqlExpr;
+
+            List<SQLExpr> sqlMethodExprs = sqlAggregateExpr.getArguments();;
+
+            SelectSqlTmp selectSqlTmp = new SelectSqlTmp(SelectSqlTmp.TYPE_3);
+            for (SQLExpr sqlMethodExpr : sqlMethodExprs) {
+                //处理函数的，不记录常量默认值类型
+                opSelectSqlTmp(sqlMethodExpr, selectSqlTmp, tableAliasmap, fromJoinTableColumnMap);
+            }
+            return selectSqlTmp;
+        }
+        else {
+           throw new RuntimeException("unKnow SQLExpr Type!");
         }
 
         //未知
-        return new SelectTableColumnTmp(SelectTableColumnTmp.TYPE_0);
+       // return new SelectTableColumnTmp(SelectTableColumnTmp.TYPE_0);
 
     }
 

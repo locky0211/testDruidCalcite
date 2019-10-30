@@ -247,7 +247,6 @@ public class SqlSelectTableColumns {
             return new SelectTableColumnTmp(SelectTableColumnTmp.TYPE_2);
 
         } else {
-            System.out.println();
             //TODO
             return null;
         }

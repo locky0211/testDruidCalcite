@@ -29,19 +29,6 @@ public class AtLastUtil {
 
         if (targetTableInfo.getTableColumn().size() > 0 && targetTableInfo.getTableColumn().size() != selectTableColumnTmps.size()) {
 
-            //TODO
-            System.out.println(JSONArray.toJSONString(selectTableColumnTmps));
-
-            System.out.println("==============================================");
-            //TODO
-            System.out.println(JSONObject.toJSONString(tableAliasmap));
-
-            System.out.println("==============================================");
-            //TODO
-            System.out.println(JSONObject.toJSONString(tmpTableRelationTableMap));
-
-            System.out.println("==============================================");
-
             throw new RuntimeException("insert 表字段数和 select 字段数不匹配! targetTable字段数【" + targetTableInfo.getTableColumn().size() + "】,select 字段数[" + selectTableColumnTmps.size() + "] ");
         }
 

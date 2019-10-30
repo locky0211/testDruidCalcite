@@ -74,10 +74,8 @@ public class SqlParserSample {
        for(SqlNode sqlNode1 : list){
             if(sqlNode1 instanceof SqlBasicCall){
                     SqlBasicCall sqlBasicCall = (SqlBasicCall) sqlNode1;
-                    System.out.println();
             }else if(sqlNode1 instanceof SqlIdentifier){
                 SqlIdentifier sqlIdentifier = (SqlIdentifier) sqlNode1;
-                System.out.println();
             }
 
 
@@ -90,10 +88,8 @@ public class SqlParserSample {
         for(SqlNode sqlNode1 : columnListList){
             if(sqlNode1 instanceof SqlBasicCall){
                 SqlBasicCall sqlBasicCall = (SqlBasicCall) sqlNode1;
-                System.out.println();
             }else if(sqlNode1 instanceof SqlIdentifier){
                 SqlIdentifier sqlIdentifier = (SqlIdentifier) sqlNode1;
-                System.out.println();
             }
         }
 
