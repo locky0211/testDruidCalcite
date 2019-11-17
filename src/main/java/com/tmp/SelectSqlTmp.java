@@ -144,7 +144,17 @@ public class SelectSqlTmp extends SelectTableColumnTmpBase {
                     tableColumns = new ArrayList<String>();
                     tableAliaColumns.put(alias, tableColumns);
                 }
-                tableColumns.addAll(tableAliaColumnsThis.get(alias));
+
+                List<String> tableColumnsThis = tableAliaColumnsThis.get(alias);
+                for(String tableColumnThis: tableColumnsThis){
+
+                    if(tableColumns.indexOf(tableColumnThis) > -1){
+                        continue;
+                    }
+
+                    tableColumns.add(tableColumnThis);
+                }
+
             }
 
         }

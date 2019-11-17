@@ -34,216 +34,156 @@ public class DruidMain {
 //                "LEFT JOIN  DF.TEST_2 C ON A.GL_ACCT_NO=C.TEST_NO " +
 //                "WHERE A.GL_ACCT_NO_2 > 0 )";
 //
-//        String sql="INSERT INTO SESSION.N_F_LN_BUSINESS_PUTOUT_H(\n" +
-//                "        SERIALNO\n" +
-//                "        ,CONTRACTSERIALNO\n" +
-//                "        ,MFCUSTOMERID\n" +
-//                "        ,CUSTOMERID\n" +
-//                "       \n" +
-//                "    \n" +
-//                "       )  SELECT\n" +
-//                "      A.SERIALNO\n" +
-//                "      ,A.CONTRACTSERIALNO\n" +
-//                "      ,B.MFCUSTOMERID\n" +
-//                "      ,A.CUSTOMERID\n" +
-//                "     \n" +
-//                "      FROM ODS.O_CMIS_BUSINESS_PUTOUT A LEFT JOIN ODS.O_CMIS_CUSTOMER_INFO B ON A.CUSTOMERID=B.CUSTOMERID\n" +
-//                "      WHERE  A.ETL_DT = I_STATEDATE \n" +
-//                "      UNION  SELECT\n" +
-//                "        VC.SERIALNO_VC\n" +
-//                "        ,VC.CONTRACTSERIALNO_VC\n" +
-//                "        ,VC.MFCUSTOMERID_VC\n" +
-//                "        ,VC.CUSTOMERID_VC\n" +
-//                "      \n" +
-//                "      FROM  FDS.F_LN_BUSINESS_PUTOUT_H VC\n" +
-//                "     ";
 
-        String sql ="INSERT INTO IDS.I_CI_ENT_INFO(\n" +
-                "            TJRQ\n" +
-                "            ,XDKHH\n" +
-                "            ,HXKHH\n" +
-                "            ,KHMC\n" +
-                "            ,KHYWMC\n" +
-                "            ,KHLX\n" +
-                "            ,JWJGBS\n" +
-                "            ,QYGM\n" +
-                "            ,HYFL\n" +
-                "            ,SYZDM\n" +
-                "            ,KGXS\n" +
-                "            ,ZJLX\n" +
-                "            ,ZJHM\n" +
-                "            ,ZJXXZHGXRQ\n" +
-                "            ,DKKH\n" +
-                "            ,DKKKHRQ\n" +
-                "            ,DKKDQRQ\n" +
-                "            ,DJZCDM\n" +
-                "            ,ZCRQ\n" +
-                "            ,ZCGJDM\n" +
-                "            ,ZCGJMC\n" +
-                "            ,ZCDZ\n" +
-                "            ,XZQHDM\n" +
-                "            ,ZCZBBZDM\n" +
-                "            ,ZCZBJE\n" +
-                "            ,ZCXXZHGXRQ\n" +
-                "            ,SSZBBZDM\n" +
-                "            ,SSZBJE\n" +
-                "            ,SSBS\n" +
-                "            ,JTKHBZ\n" +
-                "            ,SYJTKHH\n" +
-                "            ,JTMC\n" +
-                "            ,YHGDBZ\n" +
-                "            ,CGBL\n" +
-                "            ,YHGLFBS\n" +
-                "            ,NYCYHJB\n" +
-                "            ,HJHSHFXFL\n" +
-                "            ,FXYJXH\n" +
-                "            ,GZSJ\n" +
-                "            ,WYGL\n" +
-                "            ,XYPJJG\n" +
-                "            ,GHR\n" +
-                "            ,JGDM\n" +
-                "            ,GTQYBS\n" +
-                "            ,LDMJXQYBS\n" +
-                "            ,ZCZE\n" +
-                "            ,FZZE\n" +
-                "            ,SQLR\n" +
-                "            ,ZYYWSR\n" +
-                "            ,CH\n" +
-                "            ,YSZK\n" +
-                "            ,QTYSK\n" +
-                "            ,LDZCHJ\n" +
-                "            ,LDFZHJ\n" +
-                "            ,CWBBLX\n" +
-                "            ,CWBBRQ\n" +
-                "            ,GNBGDZ\n" +
-                "            ,GNBGDZXZQHDM\n" +
-                "            ,GNBGDZGXRQ\n" +
-                ")\n" +
-                "       SELECT\n" +
-                "        I_STATEDATE AS TLRQ,\n" +
-                "        A.CUSTOMERID AS XDKHH,\n" +
-                "        VALUE(C.HXKHH,B.MFCUSTOMERID) AS HXKHH,\n" +
-                "          A.ENTERPRISENAME AS KHMC,\n" +
-                "          A.ENGLISHNAME AS KHYWMC,\n" +
-                "          DSP.FUN_XMDZ ('frkhlx',ORGNATURE,'21') AS KHLX,\n" +
-                "          '2' AS JWJGBS,\n" +
-                "          DSP.FUN_XMDZ ('qygm',SCOPE,'9') AS QYGM,\n" +
-                "          A.INDUSTRYTYPE AS HYFL,\n" +
-                "          DSP.FUN_XMDZ ('syzdm',ORGTYPE,'') AS SYZDM,\n" +
-                "          DSP.FUN_XMDZ ('kgxs', DSP.FUN_XMDZ ('syzdm', ORGTYPE, ''), '')   AS KGXS,\n" +
-                "          '1' AS ZJLX,\n" +
-                "          case when A.corpid is not null then A.corpid when A.corpid is null and length(A.licenseno)=18 then substr(A.licenseno,9,9) end as zjhm,\n" +
-                "          TO_DATE (CASE WHEN LENGTH (A.SRC_DT) IN (8,10) THEN A.SRC_DT WHEN LENGTH (A.INPUTDATE) IN (8,10) THEN A.INPUTDATE END, 'YYYYMMDD')   AS ZJXXZHGXRQ,\n" +
-                "          A.LOANCARDNO AS DKKH,\n" +
-                "          '' AS DKKKHRQ,\n" +
-                "          '' AS DKKDQRQ,\n" +
-                "          A.LICENSENO AS DJZCDM,\n" +
-                "          CASE  WHEN LENGTH (A.LICENSECHECK) IN (8, 10)  THEN TO_DATE (A.LICENSECHECK,'YYYYMMDD')  END  AS ZCRQ,\n" +
-                "          VALUE(A.COUNTRYCODE,'CHN') AS ZCGJDM,\n" +
-                "          '' AS ZCGJMC,\n" +
-                "          A.REGISTERADD AS ZCDZ,\n" +
-                "          A.REGIONCODE AS XZQHDM,\n" +
-                "          A.RCCURRENCY AS ZCZBBZDM,\n" +
-                "          A.REGISTERCAPITAL AS ZCZBJE,\n" +
-                "          TO_DATE (CASE WHEN length(A.SRC_DT) in (8,10) then A.SRC_DT WHEN LENGTH (A.INPUTDATE) IN (8,10) THEN A.INPUTDATE  END,'YYYYMMDD')  AS ZCXXZHGXRQ,\n" +
-                "          A.PCCURRENCY AS SSZBBZDM,\n" +
-                "          A.PAICLUPCAPITAL AS SSZBJE,\n" +
-                "          CASE  WHEN A.LISTINGCORPORNOT IN ('A','B','F','H') THEN '1' ELSE '2'  END AS SSBS,\n" +
-                "          CASE WHEN VALUE (BELONGGROUPID,'') = '' THEN '2' ELSE '1' END AS JTKHBZ,\n" +
-                "          B.BELONGGROUPID AS SYJTKHH,\n" +
-                "          '' AS JTMC,\n" +
-                "         CASE WHEN B.MFCUSTOMERID=D.SH_CUST_NO OR C.HXKHH=D.SH_CUST_NO THEN '1' ELSE '2' END AS YHGDBZ,\n" +
-                "         CASE WHEN B.MFCUSTOMERID=D.SH_CUST_NO OR C.HXKHH=D.SH_CUST_NO THEN  D.CGBL ELSE 0 END AS CGBL,\n" +
-                "          '' AS YHGLFBS,\n" +
-                "          CASE WHEN A.AGRLEVEL IS NOT NULL THEN A.AGRLEVEL END AS NYCYHJB,\n" +
-                "          '' AS HJHSHFXFL,\n" +
-                "          '' AS FXYJXH,\n" +
-                "          '' AS GZSJ,\n" +
-                "          '0' AS WYGL,\n" +
-                "          A.CREDITLEVEL AS XYPJJG,\n" +
-                "          CASE WHEN B.MANAGERUSERID IS NULL OR B.MANAGERORGID IS NULL THEN A.UPDATEUSERID ELSE B.MANAGERUSERID END AS GHR,\n" +
-                "          CASE  WHEN B.MANAGERUSERID IS NULL OR B.MANAGERORGID IS NULL THEN A.UPDATEORGID  ELSE B.MANAGERORGID  END AS JGDM,\n" +
-                "          '2' AS GTQYBS,\n" +
-                "          '2' AS LDMJXQYBS,\n" +
-                "          E.ZCZE AS ZCZE,\n" +
-                "          E.FZZE AS FZZE,\n" +
-                "          E.SQLR AS SQLR,\n" +
-                "          E.ZYYWSR AS ZYYWSR,\n" +
-                "          E.CH AS CH,\n" +
-                "          STRCMP(E.YSZK,E.QTYSK) AS YSZK,\n" +
-                "          E.QTYSK AS QTYSK,\n" +
-                "          E.LDZCHJ AS LDZCHJ,\n" +
-                "          E.LDFZHJ AS LDFZHJ,\n" +
-                "          E.CWBBLX AS CWBBLX,\n" +
-                "          E.CWBBRQ AS CWBBRQ,\n" +
-                "          A.OFFICEADD AS GNBGDZ,\n" +
-                "          A.REGIONCODE AS GNBGDZXZQHDM,\n" +
-                "          '' AS GNBGDZGXRQ     \n" +
-                "        FROM ODS.O_CMIS_ENT_INFO A\n" +
-                "        LEFT JOIN ODS.O_CMIS_CUSTOMER_INFO B \n" +
-                "        ON A.CUSTOMERID=B.CUSTOMERID \n" +
-                "        AND B.CERTTYPE LIKE '200%'\n" +
-                "        LEFT JOIN (SELECT CUSTOMERID,MAX(MFCUSTOMERID) AS HXKHH\n" +
-                "                          FROM ODS.O_CMIS_BUSINESS_DUEBILL  \n" +
-                "                          WHERE MFCUSTOMERID IS NOT NULL \n" +
-                "                          GROUP BY CUSTOMERID) C \n" +
-                "        ON A.CUSTOMERID=C.CUSTOMERID\n" +
-                "        LEFT JOIN (SELECT A.SH_CUST_NO\n" +
-                "                         ,CASE WHEN B.ZGJ = 0 THEN 0 ELSE ROUND (A.GJ / B.ZGJ * 100,4) END  AS CGBL         \n" +
-                "                          FROM (SELECT SH_CUST_NO,DECIMAL (SUM (B.SH_ACCT_BAL),24,2) AS GJ \n" +
-                "                                       FROM ODS.O_CBOD_SHACNACN A,ODS.O_CBOD_SHACNAMT B  \n" +
-                "                                       WHERE A.SH_ACCT_NO = B.SH_ACCT_NO \n" +
-                "                                       AND A.SH_DDP_ACCT_STS = '01'                \n" +
-                "                                       GROUP BY SH_CUST_NO) A,\n" +
-                "                               (SELECT DECIMAL (SUM (B.SH_ACCT_BAL),24,2) AS ZGJ                  \n" +
-                "                                       FROM ODS.O_CBOD_SHACNACN A,ODS.O_CBOD_SHACNAMT B                 \n" +
-                "                                       WHERE A.SH_ACCT_NO = B.SH_ACCT_NO  \n" +
-                "                                       AND A.SH_DDP_ACCT_STS = '01') B\n" +
-                "                   ) D \n" +
-                "         ON B.MFCUSTOMERID=D.SH_CUST_NO OR C.HXKHH=D.SH_CUST_NO\n" +
-                "         LEFT JOIN (SELECT CUSTOMERID,\n" +
-                "                           VALUE (MAX (ZCZE),0) AS ZCZE,\n" +
-                "                           VALUE (SUM (FZZE),0) AS FZZE,\n" +
-                "                           VALUE (SUM (SQLR),0) AS SQLR,\n" +
-                "                           VALUE (SUM (ZYYWSR),0) AS ZYYWSR,\n" +
-                "                           VALUE (SUM (CH),0) AS CH,\n" +
-                "                           VALUE (SUM (YSZK),0) AS YSZK,\n" +
-                "                           VALUE (SUM (QTYSK),0) AS QTYSK,\n" +
-                "                           VALUE (SUM (LDZCHJ),0) AS LDZCHJ,\n" +
-                "                           VALUE (SUM (LDFZHJ),0) AS LDFZHJ,\n" +
-                "                           CWBBLX,\n" +
-                "                           CWBBRQ          \n" +
-                "                           FROM (SELECT A.CUSTOMERID,\n" +
-                "                                        CASE WHEN C.ROWSUBJECT = '165' THEN COL2VALUE ELSE 0 END AS ZCZE,\n" +
-                "                                        CASE WHEN C.ROWSUBJECT = '246' THEN COL2VALUE ELSE 0 END AS FZZE,\n" +
-                "                                        CASE WHEN C.ROWSUBJECT = '329' THEN COL2VALUE ELSE 0 END AS SQLR,\n" +
-                "                                        CASE WHEN C.ROWSUBJECT = '301' THEN COL2VALUE ELSE 0 END AS ZYYWSR,\n" +
-                "                                        CASE WHEN C.ROWSUBJECT = '117' THEN COL2VALUE ELSE 0 END AS CH,\n" +
-                "                                        CASE WHEN C.ROWSUBJECT = '107' THEN COL2VALUE ELSE 0 END AS YSZK,\n" +
-                "                                        CASE WHEN C.ROWSUBJECT = '115' THEN COL2VALUE ELSE 0 END AS QTYSK,\n" +
-                "                                        CASE WHEN C.ROWSUBJECT = '123' THEN COL2VALUE ELSE 0 END AS LDZCHJ,\n" +
-                "                                        CASE WHEN C.ROWSUBJECT = '224' THEN COL2VALUE ELSE 0 END AS LDFZHJ,\n" +
-                "                                        DSP.FUN_XMDZ ('cwbblx',A.REPORTPERIOD,'9') AS CWBBLX,\n" +
-                "                                        LAST_DAY (to_date(REPORTDATE||'01','yyyyMMdd')) AS CWBBRQ                  \n" +
-                "                                        FROM (\n" +
-                "                                              SELECT CUSTOMERID,\n" +
-                "                                                     RECORDNO,\n" +
-                "                                                     REPORTPERIOD,\n" +
-                "                                                     REPORTDATE    \n" +
-                "                                                     FROM (\n" +
-                "                                                           SELECT CF.*,\n" +
-                "                                                                  RANK () OVER ( PARTITION BY CUSTOMERID ORDER BY REPORTDATE DESC,RECORDNO DESC) AS RANK             \n" +
-                "                                                                  FROM ODS.O_CMIS_CUSTOMER_FSRECORD CF           \n" +
-                "                                                                  WHERE SUBSTR(I_STATEDATE,1,6) BETWEEN SUBSTR (RECORDNO,4,6) \n" +
-                "                                                                  AND (SELECT SUBSTR ( REPORTNO,1,6)  FROM ODS.O_CMIS_REPORT_DATA  ORDER BY REPORTNO DESC FETCH FIRST 1 ROWS ONLY))    \n" +
-                "                                                     WHERE RANK = 1)  A  \n" +
-                "                                         LEFT  JOIN ODS.O_CMIS_REPORT_RECORD B     \n" +
-                "                                         ON A.RECORDNO = B.OBJECTNO  \n" +
-                "                                         LEFT  JOIN ODS.O_CMIS_REPORT_DATA C    \n" +
-                "                                         ON C.REPORTNO = B.REPORTNO                 \n" +
-                "                                         WHERE C.ROWSUBJECT IN ('165','246','329','301','117','107','115','123','224')) TMP        \n" +
-                "                          GROUP BY CUSTOMERID,CWBBLX,CWBBRQ) E \n" +
-                "          ON A.CUSTOMERID=E.CUSTOMERID;";
+//        String sql ="INSERT INTO IDS.I_LN_BUSINESS_INFO \n" +
+//                "       SELECT\n" +
+//
+//                "           ,CASE WHEN A.BUSINESSTYPE IN('2060000005701','2060000005542','2060000005625','2060000005711') THEN 'WD' WHEN SUBSTR(A.CUSTOMERID,1,1)='1' THEN 'GR'WHEN SUBSTR(A.CUSTOMERID,1,1)='2' THEN 'GS' ELSE NULL END AS DKLX\n" +
+//                "           ,NVL(A.BUSINESSTYPE,'9999') AS DKYT\n" +
+//                "           ,F.ORGNATURE AS KHLX\n" +
+//                "           ,DSP.FUN_XMDZ ('qygm',F.SCOPE,'9') AS QYGM\n" +
+//                "           ,'' AS KGXS\n" +
+//                "           ,F.INDUSTRYTYPE AS HYFL\n" +
+//                "           ,F.INDUSTRYTYPE AS DKTX\n" +
+//                "           ,CASE WHEN A.SUBJECTNO LIKE '1306%' THEN '1' ELSE DSP.FUN_XMDZ ('wjfl',SUBSTR (VALUE (C.FINALLYRESULT,B.APPLICATIONSORT),4,1),'0') END AS WJFL\n" +
+//                "           ,CASE WHEN VALUE (A.BADBALANCE,0) <> 0 THEN '3' WHEN VALUE (A.DULLBALANCE,0) <> 0 THEN '2' WHEN VALUE (A.OVERDUEBALANCE,0) <> 0 THEN '1' ELSE '0' END AS SJFL4\n" +
+//                "           ,CASE WHEN A.SUBJECTNO LIKE '1306%' THEN '11' ELSE DSP.FUN_XMDZ ('sjfl10',VALUE (C.FINALLYRESULT,B.APPLICATIONSORT),'00') END AS SJFL10\n" +
+//                "           ,NVL(A.VOUCHTYPE,'') AS DBFS\n" +
+//                "           ,D.SERIALNO AS SXH\n" +
+//                "           ,RELATIVESERIALNO2 AS HTH\n" +
+//                "           ,RELATIVESERIALNO1 AS JJH\n" +
+//                "           ,0 AS JZZBJE\n" +
+//                "           ,'' AS DKKH\n" +
+//                "           ,E.LN_DEP_ACCT_NO AS CKZH\n" +
+//                "           ,'' AS DKZLGS\n" +
+//                "           ,'' AS GRDKYT\n" +
+//                "           ,'' AS XGSYDKFL\n" +
+//                "           ,CASE WHEN E.LN_LN_PURP = 'A08' THEN '1'  ELSE '2' END AS GJJDKBS\n" +
+//                "           ,CASE WHEN SUBSTR (A.SUBJECTNO,1,4) IN ('1301','1302','1303') THEN '1' ELSE '2' END AS SNBS\n" +
+//                "           ,CASE WHEN SUBSTR (A.SUBJECTNO,1,4) IN ('1303') THEN '3' WHEN SUBSTR (A.SUBJECTNO,1,4) IN ('1302') THEN '4' ELSE '' END AS SNZZLX\n" +
+//                "           ,'' AS ZNDKYT\n" +
+//                "           ,'' AS YTDKBS\n" +
+//                "           ,CASE WHEN A.SUBJECTNO LIKE '1306%' THEN '2' ELSE DSP.FUN_XMDZ ('zffs',B.PAYTYPE,'1') END AS ZFFS\n" +
+//                "           ,CASE WHEN E.LN_RFN_STY IN ('101','301','204') THEN '5' WHEN E.LN_RFN_STY IN ('201','202') THEN '1' ELSE '7' END  AS HBFS\n" +
+//                "           ,CASE WHEN E.LN_RFN_STY = '01' THEN '6' WHEN E.LN_RFN_STY = '02' THEN '5' WHEN E.LN_COLI_CYCL_TOTL_MN_N BETWEEN 1 AND 2 THEN '1'  WHEN E.LN_COLI_CYCL_TOTL_MN_N BETWEEN 3 AND 5 THEN '2'\n" +
+//                "                WHEN E.LN_COLI_CYCL_TOTL_MN_N BETWEEN 6 AND 11 THEN '3' WHEN E.LN_COLI_CYCL_TOTL_MN_N = 12 THEN '4' ELSE '6' END AS HXFS\n" +
+//                "           ,DSP.FUN_XMDZ ('cztxbs',B.ISFINDIS,'3') AS CZTXBS\n" +
+//                "           ,'' AS TSBZ\n" +
+//                "           ,CASE WHEN DAYS (TO_DATE (I_STATEDATE, 'YYYYMMDD')) - DAYS (TO_DATE(A.MATURITY,'YYYY-MM-DD'))+1 > H.QBTS\n" +
+//                "                      THEN DAYS (TO_DATE (I_STATEDATE, 'YYYYMMDD')) - DAYS (TO_DATE(A.MATURITY,'YYYY-MM-DD'))+1\n" +
+//                "                    ELSE H.QBTS\n" +
+//                "                END AS QBTS    --欠本天数\n" +
+//                "           ,NVL(G.QXTS,0) AS QXTS    --欠息天数\n" +
+//                "           ,CASE WHEN H.QBYE> (CASE WHEN E.LN_LN_BAL <> 0 AND TO_DATE(A.MATURITY,'YYYY-MM-DD') < TO_DATE (I_STATEDATE, 'YYYYMMDD') THEN E.LN_LN_BAL ELSE 0 end) \n" +
+//                "            THEN (CASE WHEN E.LN_LN_BAL <> 0 AND TO_DATE(A.MATURITY,'YYYY-MM-DD') < TO_DATE (I_STATEDATE, 'YYYYMMDD') THEN E.LN_LN_BAL ELSE 0 END ) \n" +
+//                "            ELSE H.QBYE END\n" +
+//                "            AS QBYE    --欠本余额\n" +
+//                "           ,NVL(G.BNQXYE,0) AS BNQXYE  --表内欠息余额\n" +
+//                "           ,NVL(G.BWQXYE,0) AS BWQXYE  --表外欠息余额\n" +
+//                "           ,0 AS BYHBJE\n" +
+//                "           ,0 AS BYHXJE\n" +
+//                "           ,NULL AS ZJYCHBRQ\n" +
+//                "           ,0 AS ZJYCHBJE\n" +
+//                "           ,NULL AS ZJYCHXRQ\n" +
+//                "           ,0 AS ZJYHXJE\n" +
+//                "           ,NULL AS XQHBRQ\n" +
+//                "           ,0 AS XQHBJE\n" +
+//                "           ,NULL AS XQHXRQ\n" +
+//                "           ,0 AS XQHXJE\n" +
+//                "           ,TO_DATE(CASE WHEN E.LN_FSTM_RFN_DT_N BETWEEN 10000101 AND 99991231 THEN E.LN_FSTM_RFN_DT_N ELSE '10000101' END,'YYYYMMDD') AS SCHBRQ\n" +
+//                "           ,TO_DATE(CASE WHEN E.LN_FSTM_INTP_DT_N BETWEEN 10000101 AND 99991231 THEN E.LN_FSTM_INTP_DT_N ELSE '10000101' END,'YYYYMMDD') AS SCHXRQ\n" +
+//                "           ,'' AS CYJGTZLX\n" +
+//                "           ,'' AS GYZXSJBS\n" +
+//                "           ,'' AS ZLXXCYLX\n" +
+//                "           ,A.MANAGEUSERID AS YWGHR\n" +
+//                "           ,A.MANAGEORGID AS YWGHJGDM\n" +
+//                "           ,NULL AS ZXDKLX\n" +
+//                "           ,NULL AS XXMC\n" +
+//                "           ,NULL AS XXDZ\n" +
+//                "           ,NULL AS XXXZQHDM\n" +
+//                "           ,NULL AS XSZH\n" +
+//                "           ,NULL AS DKSJTZZ\n" +
+//                "           ,NULL AS DKSJTZZXZQHDM\n" +
+//                "           ,NULL AS FDCDKLX\n" +
+//                "           ,0 AS ZFJZMJ\n" +
+//                "           ,0 AS ZFTS\n" +
+//                "           ,0 AS DKJZB\n" +
+//                "           ,0 AS CZSRB\n" +
+//                "           ,DSP.FUN_XMDZ ('zfrzptbs',B.ISONEQ,'2') AS ZFRZPTBS\n" +
+//                "           ,NULL AS ZFRZFLXZ\n" +
+//                "           ,NULL AS ZFRZLSGX\n" +
+//                "           ,NULL AS ZFRZLX\n" +
+//                "           ,NULL AS ZFRZZJLY\n" +
+//                "           ,NULL AS ZFRZPTTX\n" +
+//                "       FROM FDS.F_LN_BUSINESS_DUEBILL_H A\n" +
+//                "        LEFT JOIN FDS.F_LN_BUSINESS_CONTRACT_H B ON A.RELATIVESERIALNO2 = B.SERIALNO AND B.FLAG5 IN ('1000','3000') AND B.END_DT='9999-12-31'\n" +
+//                "            LEFT JOIN FDS.F_LN_CLASSIFY_RESULT_H C ON A.RELATIVESERIALNO2 = C.OBJECTNO AND C.END_DT='9999-12-31' \n" +
+//                "            LEFT JOIN FDS.F_LN_BUSINESS_CONTRACT_H D ON D.RELATIVESERIALNO = B.CREDITAGGREEMENT  AND D.FLAG5 IN ('1000','3000') AND D.END_DT='9999-12-31'\n" +
+//                "            LEFT JOIN FDS.F_LN_LNLNSLNS_H E ON E.LN_LN_ACCT_NO = A.SERIALNO AND E.END_DT='9999-12-31'\n" +
+//                "            LEFT JOIN ODS.O_CMIS_ENT_INFO F ON A.CUSTOMERID=F.CUSTOMERID\n" +
+//                "            LEFT JOIN ( SELECT FK_LNLNS_KEY AS DKZH,\n" +
+//                "              DAYS (TO_DATE (I_STATEDATE, 'YYYYMMDD')) -\n" +
+//                "                 DAYS ( TO_DATE ( CASE\n" +
+//                "                                    WHEN (SELECT MAX (LN_INTC_DAYS)\n" +
+//                "                                            FROM ODS.O_CBOD_LNLNSUPY\n" +
+//                "                                           WHERE FK_LNLNS_KEY = LN.FK_LNLNS_KEY\n" +
+//                "                                           AND LN_INTC_CUTDT_N = MIN (LN.LN_INTC_CUTDT_N)) = 0\n" +
+//                "                                    THEN (SELECT MAX (LN_INTC_CUTDT_N)\n" +
+//                "                                            FROM ODS.O_CBOD_LNLNSUPY\n" +
+//                "                                           WHERE LN_INTC_CUTDT_N < MIN (LN.LN_INTC_CUTDT_N)\n" +
+//                "                                             AND LN_INTRBL = LN_ARFN_INT\n" +
+//                "                                             AND FK_LNLNS_KEY = LN.FK_LNLNS_KEY)\n" +
+//                "                                    ELSE MIN (LN.LN_INTC_CUTDT_N)\n" +
+//                "                                  END, 'YYYYMMDD')) AS QXTS,\n" +
+//                "              SUM ( CASE WHEN LN_INT_TYP IN ('2', '4')\n" +
+//                "                           THEN LN_INTRBL - LN_ARFN_INT\n" +
+//                "                         ELSE 0\n" +
+//                "                     END) AS BNQXYE,\n" +
+//                "              SUM ( CASE WHEN LN_INT_TYP IN ('2', '4')  --转贴现和系统外转贴现\n" +
+//                "                           THEN 0\n" +
+//                "                         ELSE LN_INTRBL - LN_ARFN_INT\n" +
+//                "                     END) AS BWQXYE\n" +
+//                "         FROM ODS.O_CBOD_LNLNSUPY LN\n" +
+//                "        WHERE LN_INTRBL > LN_ARFN_INT \n" +
+//                "          AND LN_INTC_CUTDT_N BETWEEN 10000101 AND I_STATEDATE\n" +
+//                "        GROUP BY FK_LNLNS_KEY\n" +
+//                "        ) G\n" +
+//                "        ON A.SERIALNO=G.DKZH\n" +
+//                "        LEFT JOIN (SELECT FK_LNLNS_KEY AS DKZH,\n" +
+//                "              DAYS (TO_DATE (I_STATEDATE, 'YYYYMMDD')) - DAYS (TO_DATE (MIN (LN_PPRD_RFN_DAY_N), 'YYYYMMDD')) AS QBTS,\n" +
+//                "              SUM (LN_CRNT_PRD_PR - LN_ARFN_PR) AS QBYE\n" +
+//                "         FROM FDS.F_LN_LNLNSDUE_H\n" +
+//                "        WHERE LN_PPRD_RFN_DAY_N BETWEEN '10000101'  AND I_STATEDATE\n" +
+//                "        AND LN_CRNT_PRD_PR > LN_ARFN_PR AND END_DT='9999-12-31'\n" +
+//                "        GROUP BY FK_LNLNS_KEY) H\n" +
+//                "        ON A.SERIALNO=H.DKZH\n" +
+//                "       WHERE (SUBSTR (A.SUBJECTNO,1,4) IN ('1301','1302','1303','1304','1305','1307','1308')) \n" +
+//                "             AND A.END_DT = '9999-12-31'";
+
+
+        String sql="INSERT INTO SESSION.N_F_LN_BUSINESS_PUTOUT_H(\n" +
+                "        SERIALNO\n" +
+                "        ,CONTRACTSERIALNO\n" +
+                "        ,MFCUSTOMERID\n" +
+                "        ,CUSTOMERID\n" +
+                "       \n" +
+                "    \n" +
+                "       )  SELECT\n" +
+                "      A.SERIALNO\n" +
+                "      ,A.CONTRACTSERIALNO\n" +
+                "      ,B.MFCUSTOMERID\n" +
+                "      ,A.CUSTOMERID\n" +
+                "     \n" +
+                "      FROM ODS.O_CMIS_BUSINESS_PUTOUT A LEFT JOIN ODS.O_CMIS_CUSTOMER_INFO B ON A.CUSTOMERID=B.CUSTOMERID\n" +
+                "      WHERE  A.ETL_DT = I_STATEDATE \n" +
+                "      UNION  SELECT\n" +
+                "        VC.SERIALNO_VC\n" +
+                "        ,VC.CONTRACTSERIALNO_VC\n" +
+                "        ,VC.MFCUSTOMERID_VC\n" +
+                "        ,VC.CUSTOMERID_VC\n" +
+                "      \n" +
+                "      FROM  FDS.F_LN_BUSINESS_PUTOUT_H VC\n" +
+                "     ";
 
         SqlParserDruid.opSqlTargetResourceByDruid(sql, "111");
 

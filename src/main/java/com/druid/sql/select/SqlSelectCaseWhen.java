@@ -32,6 +32,7 @@ public class SqlSelectCaseWhen {
          *          WHEN LENGTH (A.PUTOUTDATE) IN (8,10) THEN TO_DATE (A.PUTOUTDATE,'YYYYMMDD')
          *          WHEN LENGTH (A.PUTOUTDATE) IN (11,12) THEN SELECT CM_INTR1 FROM  ods.o_CBOD_CMIRTIRT WHERE  CM_INTR_TYP ='B5'\n" +
          *                                                              AND CM_IRT_STS = '0'
+         *          ELSE ...
          *          END AS KHRQ,
          *          tableA.columnC
          */
@@ -49,6 +50,12 @@ public class SqlSelectCaseWhen {
 
         }
 
+        //ELSE 部分
+        SQLExpr elseSqlExpr = sqlCaseExpr.getElseExpr();
+        if(elseSqlExpr != null){
+            //select 单个部分，SelectSqlTmp 记录信息
+            SqlSelectInfo.opSelectSqlTmp(elseSqlExpr, selectSqlTmp, tableAliasmap, fromJoinTableColumnMap);
+        }
 
         return selectSqlTmp;
     }
